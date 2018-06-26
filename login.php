@@ -1,3 +1,7 @@
+<?php
+include 'funciones/getConnection.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,14 +25,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form method="post" action="funciones/verify.php">
           <div class="form-group">
-            <label for="exampleInputEmail1">Correo Electronico</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="exampleInputEmail1">Nombre de Usuario</label>
+            <input class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Username">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contraseña</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <input class="form-control" name="password" id="exampleInputPassword1" type="password" placeholder="Contraseña">
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -36,7 +40,7 @@
                 <input class="form-check-input" type="checkbox"> Recordar Contraseña</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.php">Login</a>
+          <button type="submit" name="login" class="btn btn-primary">Login</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Registrar Cuenta</a>

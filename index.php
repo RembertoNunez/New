@@ -9,7 +9,7 @@ adminHead();
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Mi Dashboard</li>
       </ol>
       <!-- Icon Cards-->
       <div class="row">
@@ -880,10 +880,10 @@ adminHead();
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Selecione "Logout" abajo para terminar la seccion actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.php">Logout</a>
+            <a class="btn btn-primary" href="funciones/logoff.php">Logout</a>
           </div>
         </div>
       </div>
