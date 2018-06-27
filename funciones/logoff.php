@@ -18,12 +18,12 @@ if($user['active'] == 1){
     // $sql = "UPDATE `logs` SET `finalizacion` = '$current_logout_time' WHERE `logs`.`userId` = '$id' and `logs`.`id` = $idLog";
     // $statement = $connect->prepare($sql);
     // $statement->execute();
-    header('Location: ../login.php');
+    header('Location: ../index.php');
 } 
 else if($user['active'] == 0) {
-    echo "<h4>El Usuario ya esta inactivo porfavor regrese al login <a href='../login.php'>AQUI</a><h4>";
+    echo "<h4>El Usuario ya esta inactivo porfavor regrese al login <a href='../index.php'>AQUI</a><h4>";
 }
 else {
-    echo "<h4>Los datos ingresados son incorrectos porfavor intentar de nuevo <a href='../login.php'>AQUI</a><h4>";
+    echo "<h4>Los datos ingresados son incorrectos porfavor intentar de nuevo <a href='../index.php'>AQUI</a><h4>";
 }
 ?>

@@ -55,7 +55,7 @@ if($user['id_profile'] == 1 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
 
     // Envia al usuario a la pagina del administrador
-    header('Location: ../index.php');
+    header('Location: ../admin/dashboard.php');
 } 
 
 else if($user['id_profile'] == 2 && $user['username'] == $_POST['username']){
