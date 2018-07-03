@@ -68,7 +68,7 @@ function cases() {
       echo "<td>".$case['finish_at']."</td>";
       echo "<td>".$case['']."</td>";
       echo "<td>".$case['status_case']."</td>";
-      echo "<td>".$case['percentage_Complete']."</td>";
+      echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'>".$case['percentage_Complete']."</div></div></td>";
       echo "</tr>";
     }
   }
