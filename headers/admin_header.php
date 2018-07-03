@@ -125,6 +125,9 @@ function adminHead() {
           </a>
         </li>
       </ul>
+      <div align="text-center">
+        <img src="../headers/logo_peq.png" height="45">
+      </div>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

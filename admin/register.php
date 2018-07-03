@@ -25,35 +25,35 @@
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">Primer Nombre</label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                <label for="InputName">Primer Nombre</label>
+                <input class="form-control" id="InputName" type="text" aria-describedby="nameHelp" placeholder="Enter Primer Nombre">
               </div>
               <div class="col-md-6">
-                <label for="exampleInputLastName">Apellido</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <label for="InputLastName">Apellido</label>
+                <input class="form-control" id="InputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter Apellido">
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Correo Electronico</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="InputEmail1">Correo Electronico</label>
+            <input class="form-control" id="InputEmail1" type="email" aria-describedby="emailHelp" placeholder="Entre Correo">
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputPassword1">Contraseña</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <label for="eInputPassword1">Contraseña</label>
+                <input class="form-control" id="InputPassword1" type="password" placeholder="Contraseña">
               </div>
               <div class="col-md-6">
-                <label for="exampleConfirmPassword">Confirmar Contraseña</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                <label for="ConfirmPassword">Confirmar Contraseña</label>
+                <input class="form-control" id="ConfirmPassword" type="password" placeholder="Confirme Contraseña">
               </div>
             </div>
           </div>
           <a class="btn btn-primary btn-block" href="../index.php">Registrar</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="../index.php">Pagina Logoin</a>
+          <a class="d-block small mt-3" href="../index.php">Pagina Login</a>
           <a class="d-block small" href="forgot-password.php">Olivdo su Constraseña?</a>
         </div>
       </div>

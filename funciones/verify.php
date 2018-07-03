@@ -206,6 +206,6 @@ else if($user['id_profile'] == 8 && $user['username'] == $_POST['username']){
 }
 
 else {
-    echo "<h4>Los datos ingresados son incorrectos porfavor intentar de nuevo <a href='../login.php'>AQUI</a><h4>";
+    echo "<h4>Los datos ingresados son incorrectos porfavor intentar de nuevo <a href='../index.php'>AQUI</a><h4>";
 }
 ?>

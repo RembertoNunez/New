@@ -15,32 +15,28 @@ adminHead();
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Datos de Casos</div>
+          <i class="fa fa-table"></i> Seguimiento de Casos</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Correlative</th>
-                  <th>Titulo</th>
-                  <th>Descripcion</th>
-                  <th>Creado</th>
-                  <th>Empezado</th>
-                  <th>Estatus</th>
-                  <th>Prioridad</th>
-                  <th>Finalizado</th>
+                  <th>Casos</th>
+                  <th>Inicio</th>
+                  <th>Entrega</th>
+                  <th>Dias</th>
+                  <th>Estado</th>
+                  <th>Porcetaje Avance</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Correlative</th>
-                  <th>Titulo</th>
-                  <th>Descripcion</th>
-                  <th>Creado</th>
-                  <th>Empezado</th>
-                  <th>Estatus</th>
-                  <th>Prioridad</th>
-                  <th>Finalizado</th>
+                  <th>Casos</th>
+                  <th>Inicio</th>
+                  <th>Entrega</th>
+                  <th>Dias</th>
+                  <th>Estado</th>
+                  <th>Porcetaje Avance</th>
                 </tr>
               </tfoot>
               <tbody>

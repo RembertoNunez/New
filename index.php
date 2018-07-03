@@ -23,6 +23,9 @@ session_start();
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
+      <div class="logo">
+        <img src="headers/logo.svg">
+      </div>
       <div class="card-header">Login</div>
       <div class="card-body">
         <form method="post" action="funciones/verify.php">
@@ -43,8 +46,8 @@ session_start();
           <button type="submit" name="login" class="btn btn-primary">Login</button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.php">Registrar Cuenta</a>
-          <a class="d-block small" href="forgot-password.php">Olvido su Constraseña?</a>
+          <a class="d-block small mt-3" href="admin/register.php">Registrar Cuenta</a>
+          <a class="d-block small" href="admin/forgot-password.php">Olvido su Constraseña?</a>
         </div>
       </div>
     </div>

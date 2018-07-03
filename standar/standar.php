@@ -47,39 +47,28 @@ function cases() {
   $statement->execute();
   if($statement->rowCount() > 0) {
     while($case = $statement->fetch(PDO::FETCH_ASSOC)) {
-      if(empty($case['correlative'])) {
-        $case['correlative'] = "N/A";
-      }
       if(empty($case['title'])) {
         $case['title'] = "N/A";
-      }
-      if(empty($case['description_'])) {
-        $case['description_'] = "N/A";
-      }
-      if(empty($case['created_at'])) {
-        $case['created_at'] = "N/A";
       }
       if(empty($case['start_at'])) {
         $case['start_at'] = "N/A";
       }
-      if(empty($case['status_case'])) {
-        $case['status_case'] = "N/A";
-      }
-      if(empty($case['id_priority'])) {
-        $case['id_priority'] = "N/A";
-      }
       if(empty($case['finish_at'])) {
         $case['finish_at'] = "N/A";
       }
+      if(empty($case['status_case'])) {
+        $case['status_case'] = "N/A";
+      }
+      if(empty($case['percentage_Complete'])) {
+        $case['percentage_Complete'] = 0;
+      }
       echo "<tr>";
-      echo "<td>".$case['correlative']."</td>";
-      echo "<td>".$case['title']."</td>";
-      echo "<td>".$case['description_']."</td>";
-      echo "<td>".$case['created_at']."</td>";
+      echo "<td> <a href='#'>" .$case['title']."</a></td>";
       echo "<td>".$case['start_at']."</td>";
-      echo "<td>".$case['status_case']."</td>";
-      echo "<td>".$case['id_priority']."</td>";
       echo "<td>".$case['finish_at']."</td>";
+      echo "<td>".$case['']."</td>";
+      echo "<td>".$case['status_case']."</td>";
+      echo "<td>".$case['percentage_Complete']."</td>";
       echo "</tr>";
     }
   }
