@@ -26,7 +26,7 @@ session_start();
       <div class="logo">
         <img src="headers/logo.svg">
       </div>
-      <div class="card-header">Login</div>
+      <div class="card-header">Iniciar Sesion</div>
       <div class="card-body">
         <form method="post" action="funciones/verify.php">
           <div class="form-group">

@@ -1,46 +1,23 @@
 <?php
 include '../headers/admin_header.php';
 include '../standar/standar.php';
-session_start();
 adminHead();
 ?>
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Casos</li>
+        <li class="breadcrumb-item active">Perfiles</li>
       </ol>
-      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Seguimiento de Casos</div>
+          <i class="fa fa-table"></i> Perfiles</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Casos</th>
-                  <th>Inicio</th>
-                  <th>Entrega</th>
-                  <th>Dias</th>
-                  <th>Estado</th>
-                  <th>Porcetaje Avance</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Casos</th>
-                  <th>Inicio</th>
-                  <th>Entrega</th>
-                  <th>Dias</th>
-                  <th>Estado</th>
-                  <th>Porcetaje Avance</th>
-                </tr>
-              </tfoot>
-              <tbody>
                 <?php
                   cases();
                 ?>
@@ -50,10 +27,8 @@ adminHead();
         </div>
         <div class="card-footer small text-muted">Updated yesterday at <?php echo $_SESSION['time']; ?></div>
       </div>
-    </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <?php
+  </div>
+  <?php
     standar_footer();
     ?>
     <!-- Scroll to Top Button-->
@@ -76,7 +51,7 @@ adminHead();
     <script src="../js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
-  </div>
+</div>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <?php
 include '../headers/admin_header.php';
 include '../standar/standar.php';
+include '../funciones/counts.php';
 adminHead();
 ?>
   <div class="content-wrapper">
@@ -8,7 +9,7 @@ adminHead();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Mi Dashboard</li>
       </ol>
@@ -18,11 +19,11 @@ adminHead();
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-comments"></i>
+                <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5">26 New Messages!</div>
+              <div class="mr-5"> <?php countCasos(); ?> Casos!</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="tables.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -34,9 +35,9 @@ adminHead();
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-list"></i>
+                <i class="fa fa-fw fa-group"></i>
               </div>
-              <div class="mr-5">11 New Tasks!</div>
+              <div class="mr-5">12 Solicitantes!</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>
@@ -50,11 +51,11 @@ adminHead();
           <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-shopping-cart"></i>
+                <i class="fa fa-fw fa-line-chart"></i>
               </div>
-              <div class="mr-5">123 New Orders!</div>
+              <div class="mr-5"> <?php countProject(); ?> Proyectos!</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="proyectos.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -66,9 +67,9 @@ adminHead();
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
+                <i class="fa fa-fw fa-gear"></i>
               </div>
-              <div class="mr-5">13 New Tickets!</div>
+              <div class="mr-5">13 Reportes!</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>
@@ -82,7 +83,7 @@ adminHead();
       <!-- Area Chart Example-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Area Chart</div>
+          <i class="fa fa-area-chart"></i> Grafico</div>
         <div class="card-body">
           <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
@@ -93,7 +94,7 @@ adminHead();
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i> Bara</div>
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-8 my-auto">

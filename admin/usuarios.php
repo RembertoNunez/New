@@ -3,28 +3,17 @@ include '../headers/admin_header.php';
 include '../standar/standar.php';
 adminHead();
 ?>
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item active">Usuarios</li>
       </ol>
-      <!-- <div class="row">
-        <div class="col-12">
-          <h1>Blank</h1>
-          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
-        </div>
-      </div>
-    </div> -->
-    <?php
-    countCasos();
-    ?>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <?php
+  </div>
+  <?php
     standar_footer();
     ?>
     <!-- Scroll to Top Button-->
@@ -40,9 +29,14 @@ adminHead();
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../vendor/datatables/jquery.dataTables.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin.min.js"></script>
-  </div>
+    <!-- Custom scripts for this page-->
+    <script src="../js/sb-admin-datatables.min.js"></script>
+</div>
 </body>
 
 </html>

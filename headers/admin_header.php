@@ -22,7 +22,8 @@ function adminHead() {
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="dashboard.php">Administrador</a>
+    <a class="navbar-brand" href="dashboard.php">
+      <img src="../headers/logo_peq.png" height="40"> Banco Atlantida</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,14 +31,8 @@ function adminHead() {
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="dashboard.php">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-fw fa-home"></i>
             <span class="nav-link-text">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.php">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Charts</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Casos">
@@ -46,19 +41,57 @@ function adminHead() {
             <span class="nav-link-text">Casos</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Proyectos">
+          <a class="nav-link" href="proyectos.php">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Proyectos</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Mantenimiento">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
+            <span class="nav-link-text">Mantenimiento</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="navbar.php">Navbar</a>
+              <a href="navbar.php">Areas Solicitante</a>
             </li>
             <li>
-              <a href="cards.php">Cards</a>
+              <a href="navbar.php">Systemas Afectados</a>
+            </li>
+            <li>
+              <a href="navbar.php">Prioridades</a>
+            </li>
+            <li>
+              <a href="navbar.php">Etapas</a>
+            </li>
+            <li>
+              <a href="cards.php">Ciclos</a>
             </li>
           </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-key"></i>
+            <span class="nav-link-text">Seguridad</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMulti">
+            <li>
+              <a href="usuarios.php">Usuarios</a>
+            </li>
+            <li>
+              <a href="perfiles.php">Perfiles</a>
+            </li>
+            <li>
+              <a href="#">Auditoria</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Link</span>
+          </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
@@ -80,43 +113,6 @@ function adminHead() {
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Menu Levels</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -125,9 +121,9 @@ function adminHead() {
           </a>
         </li>
       </ul>
-      <div align="text-center">
+      <!-- <div align="text-center">
         <img src="../headers/logo_peq.png" height="45">
-      </div>
+      </div> -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

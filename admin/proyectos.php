@@ -1,7 +1,6 @@
 <?php
 include '../headers/admin_header.php';
 include '../standar/standar.php';
-session_start();
 adminHead();
 ?>
   <div class="content-wrapper">
@@ -9,40 +8,36 @@ adminHead();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Casos</li>
+        <li class="breadcrumb-item active">Proyectos</li>
       </ol>
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
+      <!-- Table de Proyectos -->
+       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Seguimiento de Casos</div>
+          <i class="fa fa-table"></i> Administracion de Proyectos</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Casos</th>
-                  <th>Inicio</th>
-                  <th>Entrega</th>
-                  <th>Dias</th>
-                  <th>Estado</th>
-                  <th>Porcetaje Avance</th>
+                  <th>Proyectos</th>
+                  <th>Alcance</th>
+                  <th>Fecha de Inicio</th>
+                  <th>Fecha Final</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Casos</th>
-                  <th>Inicio</th>
-                  <th>Entrega</th>
-                  <th>Dias</th>
-                  <th>Estado</th>
-                  <th>Porcetaje Avance</th>
+                  <th>Proyectos</th>
+                  <th>Alcance</th>
+                  <th>Fecha de Inicio</th>
+                  <th>Fecha Final</th>
                 </tr>
               </tfoot>
               <tbody>
                 <?php
-                  cases();
+                  proyectos();
                 ?>
               </tbody>
             </table>
@@ -64,7 +59,6 @@ adminHead();
     <?php
     logoff();
     ?>
-    <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->

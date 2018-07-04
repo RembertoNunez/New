@@ -1,4 +1,8 @@
 <?php
+session_start();
+date_default_timezone_set("America/Tegucigalpa"); 
+$dia = date("h:ia");
+$_SESSION['time'] = $dia;
 include '../funciones/getConnection.php';
 
 function standar_footer() {
@@ -6,7 +10,7 @@ function standar_footer() {
 <footer class="sticky-footer">
   <div class="container">
     <div class="text-center">
-      <small>© 2018 Banco Atlantida S.A.</small>
+      <small>© 2018 <strong>Banco Atlantida</strong> S.A.</small>
     </div>
   </div>
 </footer>
@@ -63,12 +67,44 @@ function cases() {
         $case['percentage_Complete'] = 0;
       }
       echo "<tr>";
-      echo "<td> <a href='#'>" .$case['title']."</a></td>";
+      echo "<td> <a name='casoslink' href='#'>" .$case['title']."</a></td>";
       echo "<td>".$case['start_at']."</td>";
       echo "<td>".$case['finish_at']."</td>";
       echo "<td>".$case['']."</td>";
       echo "<td>".$case['status_case']."</td>";
-      echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'>".$case['percentage_Complete']."</div></div></td>";
+      echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'></div></div>".$case['percentage_Complete']."%</td>";
+      echo "</tr>";
+    }
+  }
+}
+
+function proyectos() {
+  $connect = getDBConnection();
+  $sql = "SELECT * FROM `project`";
+  $statement = $connect->prepare($sql);
+  $statement->execute();
+  if($statement->rowCount() > 0) {
+    while($proj = $statement->fetch(PDO::FETCH_ASSOC)) {
+      if(empty($proj['title'])) {
+        $proj['title'] = "N/A";
+      }
+      if(empty($proj['description'])) {
+        $proj['description'] = "N/A";
+      }
+      if(empty($proj['observations'])) {
+        $proj['observations'] = "N/A";
+      }
+      if(empty($proj['start_at'])) {
+        $proj['start_at'] = "N/A";
+      }
+      if(empty($proj['finalize_at'])) {
+        $proj['finalize_at'] = "N/A";
+      }
+      echo "<tr>";
+      echo "<td> <a name='casoslink' href='#'>" .$proj['title']."</a></td>";
+      echo "<td>".$proj['observations']."</td>";
+      echo "<td>".$proj['start_at']."</td>";
+      echo "<td>".$proj['finalize_at']."</td>";
       echo "</tr>";
     }
   }
