@@ -10,7 +10,7 @@ function standar_footer() {
 <footer class="sticky-footer">
   <div class="container">
     <div class="text-center">
-      <small>© 2018 <strong>Banco Atlantida</strong> S.A.</small>
+      <small>© <?php echo date('Y'); ?> <strong>Banco Atlantida</strong> S.A.</small>
     </div>
   </div>
 </footer>
@@ -33,7 +33,7 @@ function logoff() {
       </div>
       <div class="modal-body">Selecione el boton de "Logout" abajo para terminar la sesion actual.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
         <a class="btn btn-primary" href="../funciones/logoff.php">Logout</a>
       </div>
     </div>
@@ -41,9 +41,35 @@ function logoff() {
 </div>
 <?php
 }
+
+function proyectoUpdate() {
 ?>
+<div class="modal fade" id="proyectoModal" tabindex="-1" role="dialog" aria-labelledby="projModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projModal">Actualizar Proyecto</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          Titulo <br/>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-primary" href="../funciones/update.php">Actualizar</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php
+}
+
 function cases() {
   $connect = getDBConnection();
   $sql = "SELECT * FROM `case_identity`";
@@ -101,7 +127,7 @@ function proyectos() {
         $proj['finalize_at'] = "N/A";
       }
       echo "<tr>";
-      echo "<td> <a name='casoslink' href='#'>" .$proj['title']."</a></td>";
+      echo "<td> <a name='casoslink' data-toggle='modal' data-target='#proyectoModal' href='#'>" .$proj['title']."</a></td>";
       echo "<td>".$proj['observations']."</td>";
       echo "<td>".$proj['start_at']."</td>";
       echo "<td>".$proj['finalize_at']."</td>";

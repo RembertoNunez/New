@@ -12,6 +12,7 @@ function adminHead() {
   <meta name="author" content="">
   <title>Gerencia de Analisis</title>
   <!-- Bootstrap core CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -205,7 +206,7 @@ function adminHead() {
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
+              <input class="form-control" type="text" placeholder="Buscar...">
               <span class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fa fa-search"></i>
