@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../headers/admin_header.php';
 include '../standar/standar.php';
 adminHead();

@@ -44,7 +44,7 @@ function logoff() {
 
 function proyectoUpdate() {
 ?>
-<div class="modal fade" id="proyectoModal" tabindex="-1" role="dialog" aria-labelledby="projModal" aria-hidden="true">
+<div class="modal fade" id="proyectoModal" tabindex="-6" role="dialog" aria-labelledby="projModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -54,15 +54,26 @@ function proyectoUpdate() {
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          Titulo <br/>
-
+        <form method="POST" action="../funciones/updateProyecto.php">
+          <label>Titulo</label><br/>
+          <input type="text" name="title" size="56" value=<?php echo $_SESSION['titleproj']; ?>> <br/>
+          <label>Alcance</label><br/>
+          <textarea name="alcance" rows="4" cols="55"><?php echo $_SESSION['observationsproj']; ?></textarea>
+          <div>
+            <label>Fecha de Incio</label> <br/>
+            <input type="date" name="inicio" value=<?php echo $_SESSION['start_atproj']; ?>><br/>
+          </div>
+          <div>
+            <label>Fecha Final</label> <br/>
+            <input type="date" name="final" value=<?php echo $_SESSION['finalize_atproj']; ?>>
+          </div>
+      </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <input class="btn btn-primary" type="submit" name="submit" value="Actualizar">
+            <!-- <a class="btn btn-primary">Actualizar</a> -->
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="../funciones/update.php">Actualizar</a>
-      </div>
     </div>
   </div>
 </div>
@@ -111,6 +122,19 @@ function proyectos() {
   $statement->execute();
   if($statement->rowCount() > 0) {
     while($proj = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $_SESSION['titleproj'] = $proj['title'];
+      $_SESSION['descriptionproj'] = $proj['description'];
+      $_SESSION['observationsproj'] = $proj['observations'];
+      $diaIni = $proj['start_at'];
+      $diaInicio = strtotime($diaIni);
+      $newInicio = date('m/d/Y', $diaInicio);
+      $showInicio = date('Y-m-d', $diaInicio);
+      $_SESSION['start_atproj'] = $showInicio;
+      $diaFin = $proj['finalize_at'];
+      $diaFinal = strtotime($diaFin);
+      $newFinal = date('m/d/Y', $diaFinal);
+      $showFinal = date('Y-m-d', $diaFinal);
+      $_SESSION['finalize_atproj'] = $showFinal;
       if(empty($proj['title'])) {
         $proj['title'] = "N/A";
       }
@@ -121,16 +145,16 @@ function proyectos() {
         $proj['observations'] = "N/A";
       }
       if(empty($proj['start_at'])) {
-        $proj['start_at'] = "N/A";
+        $newInicio = "N/A";
       }
       if(empty($proj['finalize_at'])) {
-        $proj['finalize_at'] = "N/A";
+        $newFinal = "N/A";
       }
       echo "<tr>";
       echo "<td> <a name='casoslink' data-toggle='modal' data-target='#proyectoModal' href='#'>" .$proj['title']."</a></td>";
       echo "<td>".$proj['observations']."</td>";
-      echo "<td>".$proj['start_at']."</td>";
-      echo "<td>".$proj['finalize_at']."</td>";
+      echo "<td>".$newInicio."</td>";
+      echo "<td>".$newFinal."</td>";
       echo "</tr>";
     }
   }
