@@ -23,8 +23,8 @@ session_start();
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="logo">
-        <img src="headers/logo.svg">
+      <div class="logo" >
+        <img style="margin: 10%;" src="headers/logo.svg">
       </div>
       <div class="card-header">Iniciar Sesion</div>
       <div class="card-body">
