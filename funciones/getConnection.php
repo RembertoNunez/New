@@ -1,10 +1,10 @@
 <?php
 function getDBConnection() {
     //Informacion de base de datos
-    $host = "localhost";
-    $db = "sesc";
-    $user = "root";
-    $pass = "root";
+    $host = "us-cdbr-iron-east-04.cleardb.net";
+    $db = "heroku_91371adea50de1b";
+    $user = "bb3ac46965aa56";
+    $pass = "cadb2033";
     $charset ="utf8mb4";
     
     //Estableciendo Conexion
