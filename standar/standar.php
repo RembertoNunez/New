@@ -91,6 +91,17 @@ function cases() {
   $statement->execute();
   if($statement->rowCount() > 0) {
     while($case = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $diaIni = $case['start_at'];
+      $diaInicio = strtotime($diaIni);
+      $newInicio = date('m/d/Y', $diaInicio);
+      $showInicio = date('Y-m-d', $diaInicio);
+      $_SESSION['start_atcase'] = $showInicio;
+      $diaFin = $case['finish_at'];
+      $diaFinal = strtotime($diaFin);
+      $newFinal = date('m/d/Y', $diaFinal);
+      $showFinal = date('Y-m-d', $diaFinal);
+      $_SESSION['finalize_atcase'] = $showFinal;
+  
       if(empty($case['title'])) {
         $case['title'] = "N/A";
       }
@@ -108,8 +119,8 @@ function cases() {
       }
       echo "<tr>";
       echo "<td> <a name='casoslink' href='#'>" .$case['title']."</a></td>";
-      echo "<td>".$case['start_at']."</td>";
-      echo "<td>".$case['finish_at']."</td>";
+      echo "<td>".$newInicio."</td>";
+      echo "<td>".$newFinal."</td>";
       echo "<td>".$case['']."</td>";
       echo "<td>".$case['status_case']."</td>";
       echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'></div></div>".$case['percentage_Complete']."%</td>";
@@ -128,6 +139,7 @@ function proyectos() {
       $_SESSION['titleproj'] = $proj['title'];
       $_SESSION['descriptionproj'] = $proj['description'];
       $_SESSION['observationsproj'] = $proj['observations'];
+
       $diaIni = $proj['start_at'];
       $diaInicio = strtotime($diaIni);
       $newInicio = date('m/d/Y', $diaInicio);
@@ -138,6 +150,7 @@ function proyectos() {
       $newFinal = date('m/d/Y', $diaFinal);
       $showFinal = date('Y-m-d', $diaFinal);
       $_SESSION['finalize_atproj'] = $showFinal;
+
       if(empty($proj['title'])) {
         $proj['title'] = "N/A";
       }
