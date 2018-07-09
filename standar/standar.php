@@ -59,16 +59,16 @@ function proyectoUpdate() {
           <?php
           $name = $_GET['name'];
           ?>
-          <input type="text" name="title" size="56" value=<?php echo $_SESSION['titleproj']; ?>> <br/>
+          <input class="form-control" type="text" name="title" size="56" value=<?php echo $_SESSION['titleproj']; ?>> <br/>
           <label class="text-muted">Alcance</label><br/>
-          <textarea name="alcance" rows="4" cols="55"><?php echo $_SESSION['observationsproj']; ?></textarea>
+          <textarea class="form-control" name="alcance"><?php echo $_SESSION['observationsproj']; ?></textarea>
           <div>
             <label class="text-muted">Fecha de Incio</label> <br/>
-            <input type="date" name="inicio" value=<?php echo $_SESSION['start_atproj']; ?>><br/>
+            <input class="form-control" type="date" name="inicio" value=<?php echo $_SESSION['start_atproj']; ?>><br/>
           </div>
           <div>
             <label class="text-muted">Fecha Final</label> <br/>
-            <input type="date" name="final" value=<?php echo $_SESSION['finalize_atproj']; ?>>
+            <input class="form-control" type="date" name="final" value=<?php echo $_SESSION['finalize_atproj']; ?>>
           </div>
       </div>
           <div class="modal-footer">
