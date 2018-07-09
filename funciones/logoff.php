@@ -24,6 +24,6 @@ else if($user['active'] == 0) {
     echo "<h4>El Usuario ya esta inactivo porfavor regrese al login <a href='../index.php'>AQUI</a><h4>";
 }
 else {
-    echo "<h4>Los datos ingresados son incorrectos porfavor intentar de nuevo <a href='../index.php'>AQUI</a><h4>";
+    echo "<h4>Se a casuado un error <a href='../index.php'>AQUI</a><h4>";
 }
 ?>
