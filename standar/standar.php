@@ -55,20 +55,19 @@ function proyectoUpdate() {
       </div>
       <div class="modal-body">
         <form method="POST" action="../funciones/updateProyecto.php">
-          <label>Titulo</label><br/>
+          <label class="text-muted">Titulo</label><br/>
           <?php
           $name = $_GET['name'];
-          var_dump($name); 
           ?>
           <input type="text" name="title" size="56" value=<?php echo $_SESSION['titleproj']; ?>> <br/>
-          <label>Alcance</label><br/>
+          <label class="text-muted">Alcance</label><br/>
           <textarea name="alcance" rows="4" cols="55"><?php echo $_SESSION['observationsproj']; ?></textarea>
           <div>
-            <label>Fecha de Incio</label> <br/>
+            <label class="text-muted">Fecha de Incio</label> <br/>
             <input type="date" name="inicio" value=<?php echo $_SESSION['start_atproj']; ?>><br/>
           </div>
           <div>
-            <label>Fecha Final</label> <br/>
+            <label class="text-muted">Fecha Final</label> <br/>
             <input type="date" name="final" value=<?php echo $_SESSION['finalize_atproj']; ?>>
           </div>
       </div>
