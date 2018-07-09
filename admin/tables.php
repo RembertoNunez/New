@@ -28,6 +28,7 @@ adminHead();
                   <th>Dias</th>
                   <th>Estado</th>
                   <th>Porcetaje Avance</th>
+                  <th>Editar</th>
                 </tr>
               </thead>
               <tfoot>
@@ -38,6 +39,7 @@ adminHead();
                   <th>Dias</th>
                   <th>Estado</th>
                   <th>Porcetaje Avance</th>
+                  <th>Editar</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -62,6 +64,8 @@ adminHead();
     </a>
     <!-- Logout Modal-->
     <?php
+    segCasos();
+    updateCases();
     logoff();
     ?>
     <!-- Bootstrap core JavaScript-->

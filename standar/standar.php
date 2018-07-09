@@ -84,6 +84,58 @@ function proyectoUpdate() {
 <?php
 }
 
+function updateCases() {
+?>
+
+<div class="modal fade" id="casosUpdateModal" tabindex="-6" role="dialog" aria-labelledby="casoUpdateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="casoUpdateModal">Actualizar Casos</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+        <input class="btn btn-primary" type="submit" name="submit" value="Actualizar">
+      </div>
+    </div>
+  </div>  
+</div>
+
+<?php
+}
+
+function segCasos() {
+?>
+
+<div class="modal fade" id="casosModal" tabindex="-6" role="dialog" aria-labelledby="casoModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="casoModal">Seguimiento del Caso</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Salir</button>
+        <input class="btn btn-primary" type="submit" name="submit" value="Ok">
+      </div>
+    </div>
+  </div>  
+</div>
+
+<?php
+}
+
 function cases() {
   $connect = getDBConnection();
   $sql = "SELECT * FROM `case_identity`";
@@ -118,12 +170,13 @@ function cases() {
         $case['percentage_Complete'] = 0;
       }
       echo "<tr>";
-      echo "<td> <a name='casoslink' href='#'>" .$case['title']."</a></td>";
+      echo "<td> <a name='casoslink' data-toggle='modal' data-target='#casosModal' href='#'>" .$case['title']."</a></td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
       echo "<td>".$case['']."</td>";
       echo "<td>".$case['status_case']."</td>";
       echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'></div></div>".$case['percentage_Complete']."%</td>";
+      echo "<td><a class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#casosUpdateModal' href='#'></a></td>";
       echo "</tr>";
     }
   }
@@ -136,6 +189,7 @@ function proyectos() {
   $statement->execute();
   if($statement->rowCount() > 0) {
     while($proj = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $_SESSION['proj'] = $proj;
       $_SESSION['titleproj'] = $proj['title'];
       $_SESSION['descriptionproj'] = $proj['description'];
       $_SESSION['observationsproj'] = $proj['observations'];
