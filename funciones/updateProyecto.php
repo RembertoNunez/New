@@ -12,4 +12,5 @@ $sql = "UPDATE `project` SET `title`='$title', `observations`='$observations', `
 $statement = $connect->prepare($sql);
 $statement->execute();
 
+header('Location: ../admin/proyectos.php');
 ?>

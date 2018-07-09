@@ -18,6 +18,7 @@ function adminHead() {
   <link href="../boost/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../headers/icon.png">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -223,7 +224,7 @@ function adminHead() {
     </div>
   </nav>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121951606-1"></script>
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-121951606-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

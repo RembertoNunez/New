@@ -56,6 +56,10 @@ function proyectoUpdate() {
       <div class="modal-body">
         <form method="POST" action="../funciones/updateProyecto.php">
           <label>Titulo</label><br/>
+          <?php
+          $name = $_GET['name'];
+          var_dump($name); 
+          ?>
           <input type="text" name="title" size="56" value=<?php echo $_SESSION['titleproj']; ?>> <br/>
           <label>Alcance</label><br/>
           <textarea name="alcance" rows="4" cols="55"><?php echo $_SESSION['observationsproj']; ?></textarea>
@@ -151,7 +155,7 @@ function proyectos() {
         $newFinal = "N/A";
       }
       echo "<tr>";
-      echo "<td> <a name='casoslink' data-toggle='modal' data-target='#proyectoModal' href='#'>" .$proj['title']."</a></td>";
+      echo "<td> <a name='".$proj['title']."' data-toggle='modal' data-target='#proyectoModal' href='#'>" .$proj['title']."</a></td>";
       echo "<td>".$proj['observations']."</td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
