@@ -44,7 +44,7 @@ adminHead();
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at <?php echo $_SESSION['time']; ?></div>
+        <div class="card-footer small text-muted">Updated at: <?php echo $_SESSION['projUpdate']; ?></div>
       </div>
     </div>
     <!-- /.container-fluid-->
