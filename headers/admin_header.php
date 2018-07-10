@@ -56,19 +56,19 @@ function adminHead() {
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="navbar.php">Areas Solicitante</a>
+              <a href="areaSoli.php">Areas Solicitante</a>
             </li>
             <li>
-              <a href="navbar.php">Systemas Afectados</a>
+              <a href="sysAfectados.php">Systemas Afectados</a>
             </li>
             <li>
-              <a href="navbar.php">Prioridades</a>
+              <a href="prioridades.php">Prioridades</a>
             </li>
             <li>
-              <a href="navbar.php">Etapas</a>
+              <a href="etapas.php">Etapas</a>
             </li>
             <li>
-              <a href="cards.php">Ciclos</a>
+              <a href="ciclos.php">Ciclos</a>
             </li>
           </ul>
         </li>
@@ -85,7 +85,7 @@ function adminHead() {
               <a href="perfiles.php">Perfiles</a>
             </li>
             <li>
-              <a href="#">Auditoria</a>
+              <a href="auditoria.php">Auditoria</a>
             </li>
           </ul>
         </li>

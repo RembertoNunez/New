@@ -15,6 +15,7 @@ if($user['active'] == 1){
     $sql = "UPDATE `users` SET `active`='0' WHERE `users`.`id_user` = '$id'";
     $statement = $connect->prepare($sql);
     $statement->execute();
+    session_destroy();
     // $sql = "UPDATE `logs` SET `finalizacion` = '$current_logout_time' WHERE `logs`.`userId` = '$id' and `logs`.`id` = $idLog";
     // $statement = $connect->prepare($sql);
     // $statement->execute();

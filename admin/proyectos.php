@@ -26,6 +26,7 @@ adminHead();
                   <th>Alcance</th>
                   <th>Fecha de Inicio</th>
                   <th>Fecha Final</th>
+                  <th>Editar</th>
                 </tr>
               </thead>
               <tfoot>
@@ -34,6 +35,7 @@ adminHead();
                   <th>Alcance</th>
                   <th>Fecha de Inicio</th>
                   <th>Fecha Final</th>
+                  <th>Editar</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -60,6 +62,7 @@ adminHead();
     <!-- Actualizar Modal -->
     <?php 
     proyectoUpdate();
+    segProjecto();
     ?>
     <!-- Logout Modal-->
     <?php

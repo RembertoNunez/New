@@ -10,44 +10,9 @@ adminHead();
         <li class="breadcrumb-item">
           <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Usuarios</li>
+        <li class="breadcrumb-item active">Auditoria</li>
       </ol>
   </div>
-  <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Administracion de Usuarios</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Username</th>
-                  <th>Perfil</th>
-                  <th>Editar</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Username</th>
-                  <th>Perfil</th>
-                  <th>Editar</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <?php
-                  usuarios();
-                  userUpdate();
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card-footer small text-muted">Updated at: <?php echo $_SESSION['priorUpdate']; ?></div>
-      </div>
   <?php
     standar_footer();
     ?>

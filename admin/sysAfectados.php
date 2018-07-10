@@ -10,33 +10,33 @@ adminHead();
         <li class="breadcrumb-item">
           <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Perfiles</li>
+        <li class="breadcrumb-item active">Systemas Afectados</li>
       </ol>
-    </div>
-    <div class="card mb-3">
+  </div>
+  <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Administracion de Perfiles</div>
+          <i class="fa fa-table"></i> Administracion de Systemas Afectados</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Perfil</th>
+                  <th>Systema</th>
                   <th>Descripcion</th>
                   <th>Editar</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Perfil</th>
+                  <th>Systema</th>
                   <th>Descripcion</th>
                   <th>Editar</th>
                 </tr>
               </tfoot>
               <tbody>
                 <?php
-                  perfiles();
-                  perfilesUpdate();
+                  sysAfectados();
+                  sysUpdate();
                 ?>
               </tbody>
             </table>
@@ -44,7 +44,7 @@ adminHead();
         </div>
         <div class="card-footer small text-muted">Updated at: <?php echo $_SESSION['priorUpdate']; ?></div>
       </div>
-    <?php
+  <?php
     standar_footer();
     ?>
     <!-- Scroll to Top Button-->
@@ -67,7 +67,6 @@ adminHead();
     <script src="../js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-datatables.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </div>
 </body>
 
