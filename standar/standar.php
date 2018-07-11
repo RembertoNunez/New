@@ -154,10 +154,27 @@ function userUpdate() {
       </div>
       <div class="modal-body">
         <form method="POST" action="../funciones/updatePrioridades.php">
-          <label class="text-muted">Titulo</label><br/>
+          <label class="text-muted">Nombre</label><br/>
           <input class="form-control" type="text" name="title" value="<?php echo $_SESSION['titleprior']; ?>"> <br/>
-          <label class="text-muted">Descripcion</label><br/>
-          <textarea class="form-control" name="description"><?php echo $_SESSION['descriptionprior']; ?></textarea><br/>
+          <label class="text-muted">Correo</label><br/>
+          <input class="form-control" type="email" name="correo" value="<?php echo $_SESSION['titleprior']; ?>"> <br/>
+          <label class="text-muted">Username</label><br/>
+          <input class="form-control" type="text" name="username" value="<?php echo $_SESSION['titleprior']; ?>"> <br/>
+          <label class="text-muted">Perfil</label><br/>
+          <select class="form-control" name="perfil">
+            <option value="">Seleccione un Perfil</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `profile`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($prof = $statement->fetch(PDO::FETCH_ASSOC)) 
+                echo "<option value=".$prof['title'].">".$prof['title']."</option>"; 
+              }
+            }
+            ?>
+          </select>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
