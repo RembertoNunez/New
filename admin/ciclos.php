@@ -35,8 +35,7 @@ adminHead();
               </tfoot>
               <tbody>
                 <?php
-                  ciclos();
-                  ciclosUpdate();               
+                  ciclos();              
                   ?>
               </tbody>
             </table>
@@ -51,6 +50,10 @@ adminHead();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+    <!-- Actualizar Modal -->
+    <?php 
+    ciclosUpdate(); 
+    ?>
     <!-- Logout Modal-->
     <?php
     logoff();

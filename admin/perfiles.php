@@ -36,7 +36,6 @@ adminHead();
               <tbody>
                 <?php
                   perfiles();
-                  perfilesUpdate();
                 ?>
               </tbody>
             </table>
@@ -51,6 +50,10 @@ adminHead();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+    <!-- Actualizar Modal -->
+    <?php 
+    perfilesUpdate();
+    ?>
     <!-- Logout Modal-->
     <?php
     logoff();

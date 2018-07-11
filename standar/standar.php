@@ -127,7 +127,7 @@ function priorityUpdate() {
           <input class="form-control" type="text" name="title" value="<?php echo $_SESSION['titleprior']; ?>"> <br/>
           <label class="text-muted">Descripcion</label><br/>
           <textarea class="form-control" name="description"><?php echo $_SESSION['descriptionprior']; ?></textarea><br/>
-      </div>
+          </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
             <input class="btn btn-primary" type="submit" name="submit" value="Actualizar">

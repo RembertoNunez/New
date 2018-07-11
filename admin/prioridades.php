@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../headers/admin_header.php';
 include '../standar/standar.php';
 adminHead();
@@ -12,7 +13,6 @@ adminHead();
         </li>
         <li class="breadcrumb-item active">Prioridades</li>
       </ol>
-  </div>
   <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Administracion de Proyectos</div>
@@ -36,14 +36,14 @@ adminHead();
               <tbody>
                 <?php
                   prioridades();
-                  priorityUpdate();
                 ?>
               </tbody>
             </table>
           </div>
         </div>
         <div class="card-footer small text-muted">Updated at: <?php echo $_SESSION['priorUpdate']; ?></div>
-      </div>
+    </div>
+  </div>
   <?php
   standar_footer();
   ?>
@@ -51,6 +51,11 @@ adminHead();
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fa fa-angle-up"></i>
   </a>
+
+  <!-- Actualizar Modal -->
+    <?php 
+    priorityUpdate();
+    ?>
   <!-- Logout Modal-->
   <?php
   logoff();

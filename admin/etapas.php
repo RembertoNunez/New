@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../headers/admin_header.php';
 include '../standar/standar.php';
 adminHead();
@@ -36,7 +37,6 @@ adminHead();
               <tbody>
                 <?php
                   etapas();
-                  etapasUpdate();
                 ?>
               </tbody>
             </table>
@@ -51,6 +51,10 @@ adminHead();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+    <!-- Actualizar Modal -->
+    <?php 
+    etapasUpdate();
+    ?>
     <!-- Logout Modal-->
     <?php
     logoff();

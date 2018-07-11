@@ -1,6 +1,6 @@
 <?php
 function getDBConnection() {
-    //Informacion de base de datos
+    Informacion de base de datos
     $host = "us-cdbr-iron-east-04.cleardb.net";
     $db = "heroku_91371adea50de1b";
     $user = "bb3ac46965aa56";
