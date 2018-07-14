@@ -13,7 +13,6 @@ adminHead();
         </li>
         <li class="breadcrumb-item active">Systemas Afectados</li>
       </ol>
-  </div>
   <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Administracion de Systemas Afectados</div>

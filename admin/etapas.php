@@ -13,7 +13,6 @@ adminHead();
         </li>
         <li class="breadcrumb-item active">Etapas</li>
       </ol>
-  </div>
   <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Administracion de Etapas</div>
