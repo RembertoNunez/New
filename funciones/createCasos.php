@@ -23,7 +23,7 @@ $solicitante = $_POST['solicitante'];
 $avance = $_POST['avance'];
 $current_time = date('Y-m-d H:i:s');
 
-$sql = "INSERT INTO `case_identity` (title, correlative, description_, created_at, id_requester, id_analyst, id_programmer, id_leader, id_vp, id_system, id_stage, id_priority, start_at, finish_at, id_cycle, id_project, id_status) VALUES ('$title', '$code', $description, '$current_time', '$solicitante', '$analista', '$contacto', '$lider', '$area', '$systema', '$etapa', '$prioridad', '$inicio', '$final', '$ciclo', '$proyecto', '$estado')";
+$sql = "INSERT INTO `case_identity` (title, correlative, description_, created_at, id_requester, id_analyst, id_programmer, id_leader, id_vp, id_system, id_stage, id_priority, start_at, finish_at, id_cycle, id_project, id_status) VALUES ('$title', '$code', '$description', '$current_time', '$solicitante', '$analista', '$contacto', '$lider', '$area', '$systema', '$etapa', '$prioridad', '$inicio', '$final', '$ciclo', '$proyecto', '$estado')";
 
 $statement = $connect->prepare($sql);
 $statement->execute();

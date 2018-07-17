@@ -999,10 +999,6 @@ function createCases() {
             }
             ?>
           </select> </section>
-
-          <label class="text-muted">Porcentaje de Avance</label><br/>
-          <input class="form-control" type="range" id="slider" name="avance" min="0" max="100" step="2" />
-          <label>Value: <span id="demo"></span></label>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -1010,15 +1006,6 @@ function createCases() {
             <!-- <a class="btn btn-primary">Actualizar</a> -->
           </div>
         </form>
-    <script>
-    var slider = document.getElementById("slider");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-    </script>
     </div>
   </div>
 </div>
