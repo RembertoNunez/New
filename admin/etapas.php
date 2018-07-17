@@ -15,20 +15,22 @@ adminHead();
       </ol>
   <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Administracion de Etapas</div>
+          <section style="float: left;"><i class="fa fa-table"></i> Administracion de Etapas</section>
+          <section style="float: right;">Crear Etapa <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Systema</th>
+                  <th>Etapa</th>
                   <th>Descripcion</th>
                   <th>Editar</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Systema</th>
+                  <th>Etapa</th>
                   <th>Descripcion</th>
                   <th>Editar</th>
                 </tr>

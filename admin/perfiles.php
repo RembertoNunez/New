@@ -14,7 +14,9 @@ adminHead();
       </ol>
     <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Administracion de Perfiles</div>
+          <section style="float: left;"><i class="fa fa-table"></i> Administracion de Perfiles</section>
+          <section style="float: right;">Crear Perfil <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

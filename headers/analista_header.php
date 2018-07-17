@@ -43,53 +43,6 @@ function adminHead() {
             <span class="nav-link-text">Casos</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Proyectos">
-          <a class="nav-link" href="proyectos.php">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Proyectos</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Mantenimiento">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Mantenimiento</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="areaSoli.php">Areas Solicitante</a>
-            </li>
-            <li>
-              <a href="sysAfectados.php">Systemas Afectados</a>
-            </li>
-            <li>
-              <a href="prioridades.php">Prioridades</a>
-            </li>
-            <li>
-              <a href="etapas.php">Etapas</a>
-            </li>
-            <li>
-              <a href="ciclos.php">Ciclos</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-lock"></i>
-            <span class="nav-link-text">Seguridad</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="usuarios.php">Usuarios</a>
-            </li>
-            <li>
-              <a href="perfiles.php">Perfiles</a>
-            </li>
-            <li>
-              <a href="auditoria.php">Auditoria</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">

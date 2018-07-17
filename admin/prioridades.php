@@ -15,20 +15,22 @@ adminHead();
       </ol>
   <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Administracion de Proyectos</div>
+          <section style="float: left;"><i class="fa fa-table"></i> Administracion de Prioridades</section>
+          <section style="float: right;">Crear Prioridad <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Title</th>
+                  <th>Prioridad</th>
                   <th>Description</th>
                   <th>Editar</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Title</th>
+                  <th>Prioridad</th>
                   <th>Description</th>
                   <th>Editar</th>
                 </tr>

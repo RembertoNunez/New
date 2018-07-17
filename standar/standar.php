@@ -63,13 +63,19 @@ function proyectoUpdate() {
           <label class="text-muted">Alcance</label><br/>
           <textarea class="form-control" name="alcance"><?php echo $_SESSION['observationsproj']; ?></textarea><br/>
           <div>
-            <label class="text-muted">Fecha de Incio</label> <br/>
-            <input class="form-control" type="date" name="inicio" value=<?php echo $_SESSION['start_atproj']; ?>>
+            <section style="float: left; width: 45%"><label class="text-muted">Fecha de Incio</label> <br/>
+            <input class="form-control" type="date" name="inicio" value=<?php echo $_SESSION['start_atproj']; ?>> </section>
           </div>
           <div>
-            <label class="text-muted">Fecha Final</label> <br/>
-            <input class="form-control" type="date" name="final" value=<?php echo $_SESSION['finalize_atproj']; ?>>
+            <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label> <br/>
+            <input class="form-control" type="date" name="final" value=<?php echo $_SESSION['finalize_atproj']; ?>> </section>
           </div>
+          <label class="text-muted">Estado</label><br/>
+          <select class="form-control" name="estado">
+            <option value="">Seleccione un Estado</option>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -96,22 +102,30 @@ function proyectoCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updateProyecto.php">
+        <form method="POST" action="../funciones/createProyecto.php">
           <label class="text-muted">Titulo del Proyecto</label><br/>
           <?php
           $name = $_GET['name'];
           ?>
           <input class="form-control" type="text" name="title"> <br/>
+          <label class="text-muted">Descripcion</label><br/>
+          <textarea class="form-control" name="descripcion"></textarea><br/>
           <label class="text-muted">Alcance</label><br/>
           <textarea class="form-control" name="alcance"></textarea><br/>
           <div>
-            <label class="text-muted">Fecha de Incio</label> <br/>
-            <input class="form-control" type="date" name="inicio">
+            <section style="float: left; width: 45%"><label class="text-muted">Fecha de Incio</label> <br/>
+            <input class="form-control" type="date" name="inicio"></section>
           </div>
           <div>
-            <label class="text-muted">Fecha Final</label> <br/>
-            <input class="form-control" type="date" name="final">
+            <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label> <br/>
+            <input class="form-control" type="date" name="final"></section>
           </div>
+          <label class="text-muted">Estado</label><br/>
+          <select class="form-control" name="estado">
+            <option value="">Seleccione un Estado</option>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -571,17 +585,196 @@ function updateCases() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updateCasos.php">
-          <label class="text-muted">Caso</label><br/>
-          <input class="form-control" type="text" name="title" value="<?php  ?>"> <br/>
-          <label class="text-muted">Fecha Inicio</label><br/>
-          <input class="form-control" type="date" name="inico">
-          <label class="text-muted">Fecha Final</label><br/>
-          <input class="form-control" type="date" name="final">
-          <label class="text-muted">Estado</label><br/>
-          <input class="form-control" type="text" name="estado" value="<?php ?>"> <br/>
+        <form method="POST" action="../funciones/crearCasos.php">
+          <label class="text-muted">Nombre del Caso</label>
+          <input class="form-control" type="text" name="title">
+          
+            <section style="float: left; width: 45%"><label class="text-muted">Codigo JIRA</label>
+            <input class="form-control" type="text" name="codigo"> </section>
+            <section style="float: right; width: 45%"><label class="text-muted">Analista</label>
+            <select class="form-control" name="analista">
+              <option value="">Seleccione un Analista</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `users` WHERE id_profile = 3";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($ana = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$ana['id_user'].">".$ana['name']."</option>"; 
+                }
+              }
+              ?>
+            </select> </section>
+          
+            <section style="float: left; width: 45%"><label class="text-muted">Fecha Inicio</label>
+            <input class="form-control" type="date" name="inico"> </section>
+            <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label>
+            <input class="form-control" type="date" name="final"> </section>
+          
+            <section style="float: left; width: 45%"><label class="text-muted">Estado</label>
+            <select class="form-control" name="estado">
+              <option value="">Seleccione un Estado</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `status_case`";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($status = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$status['id_status'].">".$status['title']."</option>"; 
+                }
+              }
+              ?>
+            </select> </section>
+            <section style="float: right; width: 45%"><label class="text-muted">Prioridad</label><br/>
+            <select class="form-control" name="prioridad">
+              <option value="">Seleccione un Prioridad</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `priority_case`";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($prior = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$prior['id_priority'].">".$prior['title']."</option>"; 
+                }
+              }
+              ?>
+            </select> </section>
+          
+          <section style="float: left; width: 50%"> <label class="text-muted">Descripcion</label> </section>
+            <textarea class="form-control" name="description" placeholder="Escirba un fragmento de la descripcion del requerimiento"></textarea>
+
+          <section style="float: left; width: 45%"> <label class="text-muted">Ciclo</label>
+          <select class="form-control" name="ciclo">
+            <option value="">Seleccione un Ciclo</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `cycle`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($cycle = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$cycle['id_cycle'].">".$cycle['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: right; width: 45%"> <label class="text-muted">Proyecto</label>
+          <select class="form-control" name="proyecto">
+            <option value="">Seleccione un Proyecto</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `project`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($proj = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$proj['id_project'].">".$proj['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: left; width: 45%"><label class="text-muted">Systema Relacionado</label>
+          <select class="form-control" name="systema">
+            <option value="">Seleccione un Systema</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `system_`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($sys = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$sys['id_system'].">".$sys['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+          <section style="float: right; width: 45%"><label class="text-muted">Etapa</label>
+          <select class="form-control" name="etapa">
+            <option value="">Seleccione una Etapa</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `stage`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: left; width: 45%"><label class="text-muted">Seleccione Lider</label><br/>
+          <select class="form-control" name="lider">
+            <option value="">Seleccione un Lider</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `users` WHERE id_profile = 8";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($lider = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$lider['id_user'].">".$lider['name']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: right; width: 45%"><label class="text-muted">Contacto Infatlan</label><br/>
+          <select class="form-control" name="contacto">
+            <option value="">Seleccione un Contacto</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `users` WHERE id_profile = 5";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($us = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$us['id_user'].">".$us['name']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: left; width: 45%"><label class="text-muted">Área Solicitante</label><br/>
+          <select class="form-control" name="area">
+            <option value="">Seleccione un Area</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `vp`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($vp = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$vp['id_vp'].">".$vp['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: right; width: 45%"><label class="text-muted">Solicitante</label><br/>
+          <select class="form-control" name="solicitante">
+            <option value="">Seleccione un Solicitante</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `users` WHERE id_profile = 4";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
           <label class="text-muted">Porcentaje de Avance</label><br/>
-          <input class="form-control" type="range" id="slider" name="avance" min="0" max="100" value="<?php ?>" step="2" />
+          <input class="form-control" type="range" id="slider" name="avance" min="0" max="100" step="2" />
           <label>Value: <span id="demo"></span></label>
       </div>
           <div class="modal-footer">
@@ -609,7 +802,7 @@ function updateCases() {
 function createCases() {
 ?>
 
-<div class="modal fade" id="casosCreateModal" tabindex="-6" role="dialog" aria-labelledby="casoCreatModal" aria-hidden="true">
+<div class="modal fade" id="casosCreateModal" tabindex="-50" role="dialog" aria-labelledby="casoCreatModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -619,15 +812,194 @@ function createCases() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updateCasos.php">
-          <label class="text-muted">Nombre del Caso</label><br/>
-          <input class="form-control" type="text" name="title"> <br/>
-          <label class="text-muted">Fecha Inicio</label><br/>
-          <input class="form-control" type="date" name="inico">
-          <label class="text-muted">Fecha Final</label><br/>
-          <input class="form-control" type="date" name="final">
-          <label class="text-muted">Estado</label><br/>
-          <input class="form-control" type="text" name="estado"> <br/>
+        <form method="POST" action="../funciones/crearCasos.php">
+          <label class="text-muted">Nombre del Caso</label>
+          <input class="form-control" type="text" name="title">
+          
+            <section style="float: left; width: 45%"><label class="text-muted">Codigo JIRA</label>
+            <input class="form-control" type="text" name="codigo"> </section>
+            <section style="float: right; width: 45%"><label class="text-muted">Analista</label>
+            <select class="form-control" name="analista">
+              <option value="">Seleccione un Analista</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `users` WHERE id_profile = 3";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($ana = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$ana['id_user'].">".$ana['name']."</option>"; 
+                }
+              }
+              ?>
+            </select> </section>
+          
+            <section style="float: left; width: 45%"><label class="text-muted">Fecha Inicio</label>
+            <input class="form-control" type="date" name="inico"> </section>
+            <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label>
+            <input class="form-control" type="date" name="final"> </section>
+          
+            <section style="float: left; width: 45%"><label class="text-muted">Estado</label>
+            <select class="form-control" name="estado">
+              <option value="">Seleccione un Estado</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `status_case`";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($status = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$status['id_status'].">".$status['title']."</option>"; 
+                }
+              }
+              ?>
+            </select> </section>
+            <section style="float: right; width: 45%"><label class="text-muted">Prioridad</label><br/>
+            <select class="form-control" name="prioridad">
+              <option value="">Seleccione un Prioridad</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `priority_case`";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($prior = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$prior['id_priority'].">".$prior['title']."</option>"; 
+                }
+              }
+              ?>
+            </select> </section>
+          
+          <section style="float: left; width: 50%"> <label class="text-muted">Descripcion</label> </section>
+            <textarea class="form-control" name="description" placeholder="Escirba un fragmento de la descripcion del requerimiento"></textarea>
+
+          <section style="float: left; width: 45%"> <label class="text-muted">Ciclo</label>
+          <select class="form-control" name="ciclo">
+            <option value="">Seleccione un Ciclo</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `cycle`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($cycle = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$cycle['id_cycle'].">".$cycle['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: right; width: 45%"> <label class="text-muted">Proyecto</label>
+          <select class="form-control" name="proyecto">
+            <option value="">Seleccione un Proyecto</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `project`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($proj = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$proj['id_project'].">".$proj['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: left; width: 45%"><label class="text-muted">Systema Relacionado</label>
+          <select class="form-control" name="systema">
+            <option value="">Seleccione un Systema</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `system_`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($sys = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$sys['id_system'].">".$sys['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+          <section style="float: right; width: 45%"><label class="text-muted">Etapa</label>
+          <select class="form-control" name="etapa">
+            <option value="">Seleccione una Etapa</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `stage`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: left; width: 45%"><label class="text-muted">Seleccione Lider</label><br/>
+          <select class="form-control" name="lider">
+            <option value="">Seleccione un Lider</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `users` WHERE id_profile = 8";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($lider = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$lider['id_user'].">".$lider['name']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: right; width: 45%"><label class="text-muted">Contacto Infatlan</label><br/>
+          <select class="form-control" name="contacto">
+            <option value="">Seleccione un Contacto</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `users` WHERE id_profile = 5";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($us = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$us['id_user'].">".$us['name']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: left; width: 45%"><label class="text-muted">Área Solicitante</label><br/>
+          <select class="form-control" name="area">
+            <option value="">Seleccione un Area</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `vp`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($vp = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$vp['id_vp'].">".$vp['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
+          <section style="float: right; width: 45%"><label class="text-muted">Solicitante</label><br/>
+          <select class="form-control" name="solicitante">
+            <option value="">Seleccione un Solicitante</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `users` WHERE id_profile = 4";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
+              }
+            }
+            ?>
+          </select> </section>
+
           <label class="text-muted">Porcentaje de Avance</label><br/>
           <input class="form-control" type="range" id="slider" name="avance" min="0" max="100" step="2" />
           <label>Value: <span id="demo"></span></label>
@@ -658,7 +1030,7 @@ function segCasos() {
 ?>
 
 <div class="modal fade" id="casosModal" tabindex="-6" role="dialog" aria-labelledby="casoModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="casoModal">Seguimiento del Caso</h5>
@@ -667,7 +1039,295 @@ function segCasos() {
         </button>
       </div>
       <div class="modal-body">
-        
+        <!-- Aqui empieza -->
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Grafico</div>
+        <div class="card-body">
+          <canvas id="myAreaChart" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> Bara</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-8 my-auto">
+                  <canvas id="myBarChart" width="100" height="50"></canvas>
+                </div>
+                <div class="col-sm-4 text-center my-auto">
+                  <div class="h4 mb-0 text-primary">$34,693</div>
+                  <div class="small text-muted">YTD Revenue</div>
+                  <hr>
+                  <div class="h4 mb-0 text-warning">$18,474</div>
+                  <div class="small text-muted">YTD Expenses</div>
+                  <hr>
+                  <div class="h4 mb-0 text-success">$16,219</div>
+                  <div class="small text-muted">YTD Margin</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+          <!-- Card Columns Example Social Feed-->
+          <div class="mb-0 mt-4">
+            <i class="fa fa-newspaper-o"></i> News Feed</div>
+          <hr class="mt-2">
+          <div class="card-columns">
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+                <p class="card-text small">These waves are looking pretty good today!
+                  <a href="#">#surfsup</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <hr class="my-0">
+              <div class="card-body small bg-faded">
+                <div class="media">
+                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="#">Like</a>
+                      </li>
+                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">
+                        <a href="#">Reply</a>
+                      </li>
+                    </ul>
+                    <div class="media mt-3">
+                      <a class="d-flex pr-3" href="#">
+                        <img src="http://placehold.it/45x45" alt="">
+                      </a>
+                      <div class="media-body">
+                        <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <a href="#">Like</a>
+                          </li>
+                          <li class="list-inline-item">·</li>
+                          <li class="list-inline-item">
+                            <a href="#">Reply</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">Posted 32 mins ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=180" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#">John Smith</a></h6>
+                <p class="card-text small">Another day at the office...
+                  <a href="#">#workinghardorhardlyworking</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <hr class="my-0">
+              <div class="card-body small bg-faded">
+                <div class="media">
+                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <h6 class="mt-0 mb-1"><a href="#">Jessy Lucas</a></h6>Where did you get that camera?! I want one!
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="#">Like</a>
+                      </li>
+                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">
+                        <a href="#">Reply</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">Posted 46 mins ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=281" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#">Jeffery Wellings</a></h6>
+                <p class="card-text small">Nice shot from the skate park!
+                  <a href="#">#kickflip</a>
+                  <a href="#">#holdmybeer</a>
+                  <a href="#">#igotthis</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <div class="card-footer small text-muted">Posted 1 hr ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=185" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+                <p class="card-text small">It's hot, and I might be lost...
+                  <a href="#">#desert</a>
+                  <a href="#">#water</a>
+                  <a href="#">#anyonehavesomewater</a>
+                  <a href="#">#noreally</a>
+                  <a href="#">#thirsty</a>
+                  <a href="#">#dehydration</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <hr class="my-0">
+              <div class="card-body small bg-faded">
+                <div class="media">
+                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>The oasis is a mile that way, or is that just a mirage?
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="#">Like</a>
+                      </li>
+                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">
+                        <a href="#">Reply</a>
+                      </li>
+                    </ul>
+                    <div class="media mt-3">
+                      <a class="d-flex pr-3" href="#">
+                        <img src="http://placehold.it/45x45" alt="">
+                      </a>
+                      <div class="media-body">
+                        <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>
+                        <img class="img-fluid w-100 mb-1" src="https://unsplash.it/700/450?image=789" alt="">I'm saved, I found a cactus. How do I open this thing?
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <a href="#">Like</a>
+                          </li>
+                          <li class="list-inline-item">·</li>
+                          <li class="list-inline-item">
+                            <a href="#">Reply</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">Posted yesterday</div>
+            </div>
+          </div>
+          <!-- /Card Columns-->
+        </div>
+        <div class="col-lg-4">
+          <!-- Example Pie Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Pie Chart</div>
+            <div class="card-body">
+              <canvas id="myPieChart" width="100%" height="100"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+          <!-- Example Notifications Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bell-o"></i> Feed Example</div>
+            <div class="list-group list-group-flush small">
+              <a class="list-group-item list-group-item-action" href="#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <strong>David Miller</strong>posted a new article to
+                    <strong>David Miller Website</strong>.
+                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <strong>Samantha King</strong>sent you a new message!
+                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <strong>Jeffery Wellings</strong>added a new photo to the album
+                    <strong>Beach</strong>.
+                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <div class="media-body">
+                    <i class="fa fa-code-fork"></i>
+                    <strong>Monica Dennis</strong>forked the
+                    <strong>startbootstrap-sb-admin</strong>repository on
+                    <strong>GitHub</strong>.
+                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+        </div>
+      </div>
+        <!-- Aqui termina -->
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" type="button" data-dismiss="modal">Salir</button>

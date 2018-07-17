@@ -16,7 +16,9 @@ adminHead();
       <!-- Table de Proyectos -->
        <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Administracion de Proyectos</div>
+          <section style="float: left;"><i class="fa fa-table"></i> Administracion de Proyectos</section>
+          <section style="float: right;">Crear Proyecto <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#proyectoCreateModal' href='#'></a></section>
+        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -61,6 +63,7 @@ adminHead();
 
     <!-- Actualizar Modal -->
     <?php 
+    proyectoCreate();
     proyectoUpdate();
     segProjecto();
     ?>
