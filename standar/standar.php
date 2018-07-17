@@ -835,7 +835,7 @@ function createCases() {
             </select> </section>
           
             <section style="float: left; width: 45%"><label class="text-muted">Fecha Inicio</label>
-            <input class="form-control" type="date" name="inico"> </section>
+            <input class="form-control" type="date" name="inicio"> </section>
             <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label>
             <input class="form-control" type="date" name="final"> </section>
           
