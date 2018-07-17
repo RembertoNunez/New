@@ -104,9 +104,6 @@ function proyectoCreate() {
       <div class="modal-body">
         <form method="POST" action="../funciones/createProyecto.php">
           <label class="text-muted">Titulo del Proyecto</label><br/>
-          <?php
-          $name = $_GET['name'];
-          ?>
           <input class="form-control" type="text" name="title"> <br/>
           <label class="text-muted">Descripcion</label><br/>
           <textarea class="form-control" name="descripcion"></textarea><br/>
@@ -1329,7 +1326,7 @@ function segCasos() {
 
 function cases() {
   $connect = getDBConnection();
-  $sql = "SELECT * FROM `case_identity`";
+  $sql = "SELECT case_identity.*, status_case.title AS estado FROM `case_identity` JOIN status_case ON case_identity.id_status = status_case.id_status";
   $statement = $connect->prepare($sql);
   $statement->execute();
   if($statement->rowCount() > 0) {
@@ -1370,7 +1367,7 @@ function cases() {
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
       echo "<td>".$result."</td>";
-      echo "<td>".$case['status_case']."</td>";
+      echo "<td>".$case['estado']."</td>";
       echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'></div></div>".$case['percentage_Complete']."%</td>";
       echo "<td><a class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#casosUpdateModal' href='#'></a></td>";
       echo "</tr>";
