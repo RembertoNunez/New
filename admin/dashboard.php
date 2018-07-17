@@ -127,9 +127,14 @@ adminHead();
           </div>
         </div>
       </div>
+      
+    <?php
+    standar_footer();
+    ?>
       <!-- Example DataTables Card-->
     <!-- /.container-fluid-->
     <!-- /.content-wrapper--> 
+    <?php
     logoff();
     ?>
     <!-- Bootstrap core JavaScript-->
