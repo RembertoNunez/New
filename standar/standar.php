@@ -812,7 +812,7 @@ function createCases() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/crearCasos.php">
+        <form method="POST" action="../funciones/createCasos.php">
           <label class="text-muted">Nombre del Caso</label>
           <input class="form-control" type="text" name="title">
           
@@ -993,8 +993,8 @@ function createCases() {
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
-              while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
-                echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
+              while ($us = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$us['id_user'].">".$us['name']."</option>"; 
               }
             }
             ?>
