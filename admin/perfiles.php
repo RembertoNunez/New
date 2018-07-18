@@ -15,7 +15,7 @@ adminHead();
     <div class="card mb-3">
         <div class="card-header">
           <section style="float: left;"><i class="fa fa-table"></i> Administracion de Perfiles</section>
-          <section style="float: right;">Crear Perfil <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+          <section style="float: right;">Crear Perfil <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#perfilesCreateModal' href='#'></a></section>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -54,6 +54,7 @@ adminHead();
     <!-- Actualizar Modal -->
     <?php 
     perfilesUpdate();
+    perfilesCreate();
     ?>
     <!-- Logout Modal-->
     <?php

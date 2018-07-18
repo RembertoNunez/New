@@ -16,7 +16,7 @@ adminHead();
   <div class="card mb-3">
         <div class="card-header">
           <section style="float: left;"><i class="fa fa-table"></i> Administracion de Etapas</section>
-          <section style="float: right;">Crear Etapa <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+          <section style="float: right;">Crear Etapa <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#etapasCreateModal' href='#'></a></section>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -55,6 +55,7 @@ adminHead();
     <!-- Actualizar Modal -->
     <?php 
     etapasUpdate();
+    etapasCreate();
     ?>
     <!-- Logout Modal-->
     <?php

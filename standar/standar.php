@@ -206,7 +206,7 @@ function priorityCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updatePrioridades.php">
+        <form method="POST" action="../funciones/createPriority.php">
           <label class="text-muted">Titulo de Prioridad</label><br/>
           <input class="form-control" type="text" name="title"> <br/>
           <label class="text-muted">Descripcion</label><br/>
@@ -285,14 +285,14 @@ function userCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updatePrioridades.php">
-          <label class="text-muted">Nombre</label><br/>
-          <input class="form-control" type="text" name="title"> <br/>
-          <label class="text-muted">Correo</label><br/>
-          <input class="form-control" type="email" name="correo"> <br/>
-          <label class="text-muted">Username</label><br/>
-          <input class="form-control" type="text" name="username"> <br/>
-          <label class="text-muted">Perfil</label><br/>
+        <form method="POST" action="../funciones/createUser.php">
+          <section style="float: left; width: 45%"><label class="text-muted">Nombre</label>
+          <input class="form-control" type="text" name="nombre"></section>
+          <section style="float: right; width: 45%"><label class="text-muted">Correo</label>
+          <input class="form-control" type="email" name="correo"></section>
+          <section style="float: left; width: 45%"><label class="text-muted">Username</label>
+          <input class="form-control" type="text" name="username"></section>
+          <section style="float: right; width: 45%"><label class="text-muted">Perfil</label>
           <select class="form-control" name="perfil">
             <option value="">Seleccione un Perfil</option>
             <?php
@@ -302,11 +302,33 @@ function userCreate() {
             $statement->execute();
             if($statement->rowCount() > 0) {
               while ($prof = $statement->fetch(PDO::FETCH_ASSOC)) {
-                echo "<option value=".$prof['id'].">".$prof['title']."</option>"; 
+                echo "<option value=".$prof['id_profile'].">".$prof['title']."</option>"; 
               }
             }
             ?>
-          </select>
+          </select></section>
+          <section style="float: left; width: 45%"><label class="text-muted">Area</label>
+          <select class="form-control" name="area">
+            <option value="">Seleccione el Area</option>
+            <?php
+            $connect = getDBConnection();
+            $sql = "SELECT * FROM `vp`";
+            $statement = $connect->prepare($sql);
+            $statement->execute();
+            if($statement->rowCount() > 0) {
+              while ($vp = $statement->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value=".$vp['id_vp'].">".$vp['title']."</option>"; 
+              }
+            }
+            ?>
+          </select></section>
+          <section style="float: right; width: 45%"><label class="text-muted">Estado</label>
+          <select class="form-control" name="estado">
+            <option value="">Seleccione Estado</option>
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+            ?>
+          </select></section>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -364,11 +386,30 @@ function ciclosCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updatePrioridades.php">
+        <form method="POST" action="../funciones/createCiclo.php">
           <label class="text-muted">Nombre del Ciclo</label><br/>
           <input class="form-control" type="text" name="title"> <br/>
           <label class="text-muted">Descripcion</label><br/>
           <textarea class="form-control" name="description"></textarea><br/>
+          <section style="float: left; width: 45%"><label class="text-muted">Fecha Inicio</label>
+          <input class="form-control" type="date" name="inicio"> </section>
+          <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label>
+          <input class="form-control" type="date" name="final"> </section>
+          <label class="text-muted">Año de Ciclo</label><br/>
+          <select class="form-control" name="year">
+              <option value="">Seleccione un Año</option>
+              <?php
+              $connect = getDBConnection();
+              $sql = "SELECT * FROM `year_cycle`";
+              $statement = $connect->prepare($sql);
+              $statement->execute();
+              if($statement->rowCount() > 0) {
+                while ($yr = $statement->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value=".$yr['id_yc'].">".$yr['title']."</option>"; 
+                }
+              }
+              ?>
+            </select>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -426,7 +467,7 @@ function perfilesCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updatePrioridades.php">
+        <form method="POST" action="../funciones/createPerfil.php">
           <label class="text-muted">Nombre del Perfil</label><br/>
           <input class="form-control" type="text" name="title"> <br/>
           <label class="text-muted">Descripcion</label><br/>
@@ -434,7 +475,7 @@ function perfilesCreate() {
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <input class="btn btn-primary" type="submit" name="submit" value="Actualizar">
+            <input class="btn btn-primary" type="submit" name="submit" value="Crear">
             <!-- <a class="btn btn-primary">Actualizar</a> -->
           </div>
         </form>
@@ -488,7 +529,7 @@ function etapasCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updatePrioridades.php">
+        <form method="POST" action="../funciones/createEtapas.php">
           <label class="text-muted">Etapa</label><br/>
           <input class="form-control" type="text" name="title"> <br/>
           <label class="text-muted">Descripcion</label><br/>
@@ -496,7 +537,7 @@ function etapasCreate() {
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <input class="btn btn-primary" type="submit" name="submit" value="Crearß">
+            <input class="btn btn-primary" type="submit" name="submit" value="Crear">
             <!-- <a class="btn btn-primary">Actualizar</a> -->
           </div>
         </form>
@@ -550,7 +591,7 @@ function sysCreate() {
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="../funciones/updatePrioridades.php">
+        <form method="POST" action="../funciones/createSystema.php">
           <label class="text-muted">Systema</label><br/>
           <input class="form-control" type="text" name="title"> <br/>
           <label class="text-muted">Descripcion</label><br/>
@@ -576,7 +617,7 @@ function updateCases() {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="casoUpdateModal">Actualizar Casos</h5>
+        <h5 class="modal-title" id="casoUpdateModal">Actualizar Caso</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">x</span>
         </button>
@@ -1363,7 +1404,7 @@ function cases() {
         $case['percentage_Complete'] = 0;
       }
       echo "<tr>";
-      echo "<td> <a name='casoslink' data-toggle='modal' data-target='#casosModal' href='#'>" .$case['title']."</a></td>";
+      echo "<td> <a name='casoslink' data-toggle='modal' data-target='#casosModal' href='#' method='get'>" .$case['title']."</a></td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
       echo "<td>".$result."</td>";

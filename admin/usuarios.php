@@ -16,7 +16,7 @@ adminHead();
   <div class="card mb-3">
         <div class="card-header">
           <section style="float: left;"><i class="fa fa-table"></i> Administracion de Usuarios</section>
-          <section style="float: right;">Crear Usuario <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+          <section style="float: right;">Crear Usuario <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#userCreateModal' href='#'></a></section>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -59,6 +59,7 @@ adminHead();
     <!-- Actualizar Modal -->
     <?php 
     userUpdate();
+    userCreate();
     ?>
     <!-- Logout Modal-->
     <?php

@@ -16,7 +16,7 @@ adminHead();
   <div class="card mb-3">
         <div class="card-header">
           <section style="float: left;"><i class="fa fa-table"></i> Administracion de Systemas Afectados</section>
-          <section style="float: right;">Crear Systema <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#casosCreateModal' href='#'></a></section>
+          <section style="float: right;">Crear Systema <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#sistemaCreateModal' href='#'></a></section>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -54,6 +54,7 @@ adminHead();
     </a>
     <!-- Actualizar Modal -->
     <?php 
+    sysCreate();
     sysUpdate();
     ?>
     <!-- Logout Modal-->
