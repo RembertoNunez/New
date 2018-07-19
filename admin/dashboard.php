@@ -37,7 +37,7 @@ adminHead();
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-group"></i>
               </div>
-              <div class="mr-5">12 Solicitantes!</div>
+              <div class="mr-5"> <?php countSolicitante(); ?> Solicitantes!</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>

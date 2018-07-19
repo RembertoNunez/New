@@ -14,7 +14,7 @@
   <link href="../boost/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
-  <link rel="shortcut icon" type="image/png" href="../headers/icon.png">
+  <link rel="shortcut icon" type="image/ico" href="https://bancatlan.hn/favicon.ico">
 </head>
 
 <body class="bg-dark">

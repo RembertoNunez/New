@@ -1404,7 +1404,7 @@ function cases() {
         $case['percentage_Complete'] = 0;
       }
       echo "<tr>";
-      echo "<td> <a name='casoslink' data-toggle='modal' data-target='#casosModal' href='#' method='get'>" .$case['title']."</a></td>";
+      echo "<td> <a name='".$case['id_case']."' data-toggle='modal' data-target='#casosModal' href='#' method='get'>" .$case['title']."</a></td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
       echo "<td>".$result."</td>";
@@ -1458,7 +1458,7 @@ function proyectos() {
         $newFinal = "N/A";
       }
       echo "<tr>";
-      echo "<td> <a name='".$proj['title']."' data-toggle='modal' data-target='#proyectoModal' href='#'>" .$proj['title']."</a></td>";
+      echo "<td> <a name='".$proj['id_project']."' data-toggle='modal' data-target='#proyectoModal' href='#'>" .$proj['title']."</a></td>";
       echo "<td>".$proj['observations']."</td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";

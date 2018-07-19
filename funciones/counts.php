@@ -18,4 +18,13 @@ function countProject() {
   echo $project['COUNT(*)'];
 }
 
+function countSolicitante() {
+  $connect = getDBConnection();
+  $sql = "SELECT COUNT(*) FROM `users` WHERE id_profile = 4";
+  $statement = $connect->prepare($sql);
+  $statement->execute();
+  $user = $statement->fetch(PDO::FETCH_ASSOC);
+  echo $user['COUNT(*)'];
+}
+
 ?>

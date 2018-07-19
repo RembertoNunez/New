@@ -12,20 +12,20 @@ function adminHead() {
   <meta name="author" content="">
   <title>Gerencia de Analisis</title>
   <!-- Bootstrap core CSS-->
-  <link href="boost/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../boost/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="../boost/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="../boost/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
-  <link rel="shortcut icon" type="image/png" href="../headers/icon.png">
+  <link rel="shortcut icon" type="image/ico" href="https://bancatlan.hn/favicon.ico">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="dashboard.php">
-      <img src="../headers/logo_peq.png" height="40"> Banco Atlantida</a>
+      <img src="../headers/resourcesBA.png" height="43"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
