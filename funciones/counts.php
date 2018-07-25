@@ -27,4 +27,13 @@ function countSolicitante() {
   echo $user['COUNT(*)'];
 }
 
+function countSystema() {
+  $connect = getDBConnection();
+  $sql = "SELECT COUNT(*) FROM `system_`";
+  $statement = $connect->prepare($sql);
+  $statement->execute();
+  $user = $statement->fetch(PDO::FETCH_ASSOC);
+  echo $user['COUNT(*)'];
+}
+
 ?>

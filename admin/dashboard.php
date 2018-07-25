@@ -39,7 +39,7 @@ adminHead();
               </div>
               <div class="mr-5"> <?php countSolicitante(); ?> Solicitantes!</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="usuarios.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -69,9 +69,9 @@ adminHead();
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-gear"></i>
               </div>
-              <div class="mr-5">13 Reportes!</div>
+              <div class="mr-5"><?php countSystema(); ?> Systemas Afectados!</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="sysAfectados.php">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
