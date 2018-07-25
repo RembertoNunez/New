@@ -797,7 +797,7 @@ function updateCases() {
             ?>
           </select> </section>
 
-          <section style="float: left; width: 45%"><label class="text-muted">Systema Relacionado</label>
+          <section style="float: left; width: 45%"><label class="text-muted">Systema</label>
           <select class="form-control" name="systema">
             <option value="">Seleccione un Systema</option>
             <?php
@@ -1011,7 +1011,7 @@ function createCases() {
             ?>
           </select> </section>
 
-          <section style="float: left; width: 45%"><label class="text-muted">Systema Relacionado</label>
+          <section style="float: left; width: 45%"><label class="text-muted">Systema</label>
           <select class="form-control" name="systema">
             <option value="">Seleccione un Systema</option>
             <?php
