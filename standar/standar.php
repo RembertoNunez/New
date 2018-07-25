@@ -677,7 +677,6 @@ function updateCases() {
   <?php
   $connect = getDBConnection();
   $idCaso = $_SESSION['casoId'];
-  var_dump($idCaso);
   $sql = "SELECT * FROM `case_identity` WHERE id_case = '$idCaso'";
   $statement = $connect->prepare($sql);
   $statement->execute();
