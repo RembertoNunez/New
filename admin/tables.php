@@ -3,13 +3,14 @@ include '../headers/admin_header.php';
 include '../standar/standar.php';
 session_start();
 adminHead();
+$_SESSION['casoId'] = $_GET['casoId']; 
 ?>
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="dashboard.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Casos</li>
       </ol>
@@ -71,7 +72,11 @@ adminHead();
     updateCases();
     logoff();
     ?>
-
+    <script type="text/javascript"> 
+    function getCaseID(id) { 
+      window.location.href = "?casoId=" + id;
+    } 
+    </script>
     <!-- Bootstrap core JavaScript-->
     <script src="../boost/jquery/jquery.min.js"></script>
     <script src="../boost/bootstrap/js/bootstrap.bundle.min.js"></script>

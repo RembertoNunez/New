@@ -548,6 +548,68 @@ function etapasCreate() {
 <?php
 }
 
+function areaUpdate() {
+?>
+<div class="modal fade" id="areaUpModal" tabindex="-6" role="dialog" aria-labelledby="etaUpModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="etaUpModal">Actualizar Etapa</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="../funciones/updatePrioridades.php">
+          <label class="text-muted">Etapa</label><br/>
+          <input class="form-control" type="text" name="title" value="<?php echo $_SESSION['titleprior']; ?>"> <br/>
+          <label class="text-muted">Descripcion</label><br/>
+          <textarea class="form-control" name="description"><?php echo $_SESSION['descriptionprior']; ?></textarea><br/>
+      </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <input class="btn btn-primary" type="submit" name="submit" value="Actualizar">
+            <!-- <a class="btn btn-primary">Actualizar</a> -->
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<?php
+}
+
+function areaCreate() {
+?>
+<div class="modal fade" id="areaCreateModal" tabindex="-6" role="dialog" aria-labelledby="arCreateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="arCreateModal">Crear Area</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="../funciones/createEtapas.php">
+          <label class="text-muted">Area</label><br/>
+          <input class="form-control" type="text" name="title"> <br/>
+          <label class="text-muted">Descripcion</label><br/>
+          <textarea class="form-control" name="description"></textarea><br/>
+      </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <input class="btn btn-primary" type="submit" name="submit" value="Crear">
+            <!-- <a class="btn btn-primary">Actualizar</a> -->
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<?php
+}
+
 function sysUpdate() {
 ?>
 <div class="modal fade" id="sistemaUpModal" tabindex="-6" role="dialog" aria-labelledby="sysUpModal" aria-hidden="true">
@@ -612,7 +674,27 @@ function sysCreate() {
 
 function updateCases() {
 ?>
-
+  <?php
+  $connect = getDBConnection();
+  $idCaso = $_SESSION['casoId'];
+  var_dump($idCaso);
+  $sql = "SELECT * FROM `case_identity` WHERE id_case = '$idCaso'";
+  $statement = $connect->prepare($sql);
+  $statement->execute();
+  $caso = $statement->fetch(PDO::FETCH_ASSOC);
+  $_SESSION['casoTitle'] = $caso['title'];
+  $_SESSION['casoJira'] = $caso['correlative'];
+  $diaIni = $caso['start_at'];
+  $diaInicio = strtotime($diaIni);
+  $showInicio = date('Y-m-d', $diaInicio);
+  $_SESSION['inicioCaso'] = $showInicio;
+  $diaFin = $caso['finish_at'];
+  $diaFinal = strtotime($diaFin);
+  $showFinal = date('Y-m-d', $diaFinal);
+  $_SESSION['finalCaso'] = $showFinal;
+  $_SESSION['descriptionCaso'] = $caso['description_'];
+  $_SESSION['analistaCaso'] = $caso['id_analyst'];
+?>
 <div class="modal fade" id="casosUpdateModal" tabindex="-6" role="dialog" aria-labelledby="casoUpdateModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -625,19 +707,19 @@ function updateCases() {
       <div class="modal-body">
         <form method="POST" action="../funciones/crearCasos.php">
           <label class="text-muted">Nombre del Caso</label>
-          <input class="form-control" type="text" name="title">
+          <input class="form-control" type="text" name="title" value="<?php echo $_SESSION['casoTitle']; ?>">
           
             <section style="float: left; width: 45%"><label class="text-muted">Codigo JIRA</label>
-            <input class="form-control" type="text" name="codigo"> </section>
+            <input class="form-control" type="text" name="codigo" value="<?php echo $_SESSION['casoJira']; ?>"> </section>
             <section style="float: right; width: 45%"><label class="text-muted">Analista</label>
             <select class="form-control" name="analista">
-              <option value="">Seleccione un Analista</option>
               <?php
               $connect = getDBConnection();
               $sql = "SELECT * FROM `users` WHERE id_profile = 3";
               $statement = $connect->prepare($sql);
               $statement->execute();
               if($statement->rowCount() > 0) {
+                echo "<option value=''>Seleccione un Analista</option>";
                 while ($ana = $statement->fetch(PDO::FETCH_ASSOC)) {
                   echo "<option value=".$ana['id_user'].">".$ana['name']."</option>"; 
                 }
@@ -646,9 +728,9 @@ function updateCases() {
             </select> </section>
           
             <section style="float: left; width: 45%"><label class="text-muted">Fecha Inicio</label>
-            <input class="form-control" type="date" name="inico"> </section>
+            <input class="form-control" type="date" name="inico" value="<?php echo $_SESSION['inicioCaso']; ?>"> </section>
             <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label>
-            <input class="form-control" type="date" name="final"> </section>
+            <input class="form-control" type="date" name="final" value="<?php echo $_SESSION['finalCaso']; ?>"> </section>
           
             <section style="float: left; width: 45%"><label class="text-muted">Estado</label>
             <select class="form-control" name="estado">
@@ -682,7 +764,7 @@ function updateCases() {
             </select> </section>
           
           <section style="float: left; width: 50%"> <label class="text-muted">Descripcion</label> </section>
-            <textarea class="form-control" name="description" placeholder="Escirba un fragmento de la descripcion del requerimiento"></textarea>
+            <textarea class="form-control" name="description" placeholder="Escirba un fragmento de la descripcion del requerimiento"><?php echo $_SESSION['descriptionCaso']; ?></textarea>
 
           <section style="float: left; width: 45%"> <label class="text-muted">Ciclo</label>
           <select class="form-control" name="ciclo">
@@ -795,7 +877,7 @@ function updateCases() {
             ?>
           </select> </section>
 
-          <section style="float: right; width: 45%"><label class="text-muted">Solicitante</label><br/>
+          <section style="float: right; width: 45%;"><label class="text-muted">Solicitante</label><br/>
           <select class="form-control" name="solicitante">
             <option value="">Seleccione un Solicitante</option>
             <?php
@@ -810,10 +892,6 @@ function updateCases() {
             }
             ?>
           </select> </section>
-
-          <label class="text-muted">Porcentaje de Avance</label><br/>
-          <input class="form-control" type="range" id="slider" name="avance" min="0" max="100" step="2" />
-          <label>Value: <span id="demo"></span></label>
       </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -821,15 +899,6 @@ function updateCases() {
             <!-- <a class="btn btn-primary">Actualizar</a> -->
           </div>
         </form>
-    <script>
-    var slider = document.getElementById("slider");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-    </script>
     </div>
   </div>
 </div>
@@ -1404,13 +1473,14 @@ function cases() {
         $case['percentage_Complete'] = 0;
       }
       echo "<tr>";
-      echo "<td> <a name='".$case['id_case']."' data-toggle='modal' data-target='#casosModal' href='#' method='get'>" .$case['title']."</a></td>";
+      echo "<td> <a id='".$case['id_case']."' onClick='getCaseID(this.id)' data-toggle='modal' data-target='#casosModal' href='#'>" .$case['title']."</a></td>";
+      // echo "<td> <button name='".$case['id_case']."' onClick='location.href=?case='".$case['id_case']."''>" .$case['title']."</button> </td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
       echo "<td>".$result."</td>";
       echo "<td>".$case['estado']."</td>";
       echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'></div></div>".$case['percentage_Complete']."%</td>";
-      echo "<td><a class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#casosUpdateModal' href='#'></a></td>";
+      echo "<td><a id='".$case['id_case']."' class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#casosUpdateModal' href='#'></a></td>";
       echo "</tr>";
     }
   }
@@ -1600,6 +1670,25 @@ function etapas() {
       echo "<td>".$stages['title']."</td>";
       echo "<td>".$stages['description_']."</td>";
       echo "<td><a class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#etapasUpModal' href='#'></a></td>";
+      echo "</tr>";
+    }
+  }
+  else {
+    echo "No hay resultados";
+  }
+}
+
+function areas() {
+  $connect = getDBConnection();
+  $sql = "SELECT * FROM `vp`";
+  $statement = $connect->prepare($sql);
+  $statement->execute();
+  if($statement->rowCount() > 0) {
+    while ($stages = $statement->fetch(PDO::FETCH_ASSOC)) {
+      echo "<tr>";
+      echo "<td>".$stages['title']."</td>";
+      echo "<td>".$stages['description_']."</td>";
+      echo "<td><a class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#areaUpModal' href='#'></a></td>";
       echo "</tr>";
     }
   }

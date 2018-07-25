@@ -13,7 +13,38 @@ adminHead();
         </li>
         <li class="breadcrumb-item active">Area Solicitante</li>
       </ol>
-  </div>
+  <div class="card mb-3">
+        <div class="card-header">
+          <section style="float: left;"><i class="fa fa-table"></i> Administracion de Areas</section>
+          <section style="float: right;">Crear Area <a class='fa fa-fw fa-plus' data-toggle='modal' data-target='#areaCreateModal' href='#'></a></section>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Descripcion</th>
+                  <th>Editar</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Area</th>
+                  <th>Descripcion</th>
+                  <th>Editar</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <?php
+                  areas();
+                ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated at: <?php echo $_SESSION['priorUpdate']; ?></div>
+      </div>
   <?php
     standar_footer();
     ?>
@@ -21,6 +52,11 @@ adminHead();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+    <!-- Actualizar Modal -->
+    <?php 
+    areaUpdate();
+    areaCreate();
+    ?>
     <!-- Logout Modal-->
     <?php
     logoff();

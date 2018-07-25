@@ -72,7 +72,7 @@ function adminHead() {
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Seguridad">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-lock"></i>
             <span class="nav-link-text">Seguridad</span>
