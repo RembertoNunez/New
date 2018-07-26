@@ -1362,7 +1362,7 @@ function segCasos() {
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart</div>
+              <i class="fa fa-pie-chart"></i> Avance</div>
             <div class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
             </div>

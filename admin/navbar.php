@@ -1,6 +1,6 @@
 <?php
 include '../headers/admin_header.php';
-include '../standar/standar.php'
+include '../standar/standar.php';
 adminHead();
 ?>
   <div class="content-wrapper">

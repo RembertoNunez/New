@@ -56,6 +56,8 @@ $_SESSION['casoId'] = $_GET['casoId'];
         <div class="card-footer small text-muted">Updated yesterday at <?php echo $_SESSION['time']; ?></div>
       </div>
     </div>
+    <div id="rslt">
+    </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <?php
@@ -65,18 +67,25 @@ $_SESSION['casoId'] = $_GET['casoId'];
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+    <!-- Caso ID -->
+    <script type="text/javascript"> 
+    function getCaseID(id) { 
+      var casoid = id;
+      document.getElementById("rslt").innerHTML="<?php 
+      $phpvar='"+casoid+"'; 
+      echo $phpvar;
+      $_SESSION['casoID'] = $phpvar;
+      ?>";
+    } 
+    </script>
     <!-- Logout Modal-->
     <?php
+    var_dump($_SESSION['casoID']);
     createCases();
     segCasos();
     updateCases();
     logoff();
     ?>
-    <script type="text/javascript"> 
-    function getCaseID(id) { 
-      window.location.href = "?casoId=" + id;
-    } 
-    </script>
     <!-- Bootstrap core JavaScript-->
     <script src="../boost/jquery/jquery.min.js"></script>
     <script src="../boost/bootstrap/js/bootstrap.bundle.min.js"></script>
