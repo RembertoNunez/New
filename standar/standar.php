@@ -1135,7 +1135,7 @@ function segCasos() {
         <!-- Aqui empieza -->
         <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Grafico</div>
+          <i class="fa fa-area-chart"></i> Progresos</div>
         <div class="card-body">
           <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
@@ -1146,7 +1146,7 @@ function segCasos() {
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bara</div>
+              <i class="fa fa-bar-chart"></i> Economia</div>
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-8 my-auto">
@@ -1168,7 +1168,7 @@ function segCasos() {
           </div>
           <!-- Card Columns Example Social Feed-->
           <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> News Feed</div>
+            <i class="fa fa-newspaper-o"></i> Comentarios</div>
           <hr class="mt-2">
           <div class="card-columns">
             <!-- Example Social Card-->

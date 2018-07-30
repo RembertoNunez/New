@@ -74,13 +74,11 @@ $_SESSION['casoId'] = $_GET['casoId'];
       document.getElementById("rslt").innerHTML="<?php 
       $phpvar='"+casoid+"'; 
       echo $phpvar;
-      $_SESSION['casoID'] = $phpvar;
       ?>";
     } 
     </script>
     <!-- Logout Modal-->
     <?php
-    var_dump($_SESSION['casoID']);
     createCases();
     segCasos();
     updateCases();

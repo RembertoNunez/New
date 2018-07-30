@@ -7,9 +7,9 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    labels: ["Nose 1", "Nose 2", "Nose 3", "Nose 4", "Nose 5", "Nose 6", "Nose 7", "Nose 8", "Nose 9", "Nose 10", "Nose 11", "Nose 12", "Nose 13"],
     datasets: [{
-      label: "Sessions",
+      label: "Periodos",
       lineTension: 0.3,
       backgroundColor: "rgba(2,117,216,0.2)",
       borderColor: "rgba(2,117,216,1)",
@@ -57,9 +57,9 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["Enero", "Febrero", "Marzo", "April", "Mayo", "Junio"],
     datasets: [{
-      label: "Revenue",
+      label: "Ganancia",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
       data: [4215, 5312, 6251, 7841, 9821, 14984],
