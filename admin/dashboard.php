@@ -102,13 +102,13 @@ adminHead();
                 </div>
                 <div class="col-sm-4 text-center my-auto">
                   <div class="h4 mb-0 text-primary">$34,693</div>
-                  <div class="small text-muted">YTD Revenue</div>
+                  <div class="small text-muted">Ganancias</div>
                   <hr>
                   <div class="h4 mb-0 text-warning">$18,474</div>
-                  <div class="small text-muted">YTD Expenses</div>
+                  <div class="small text-muted">Gastos</div>
                   <hr>
                   <div class="h4 mb-0 text-success">$16,219</div>
-                  <div class="small text-muted">YTD Margin</div>
+                  <div class="small text-muted">Margen</div>
                 </div>
               </div>
             </div>
