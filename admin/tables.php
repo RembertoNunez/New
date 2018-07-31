@@ -71,19 +71,16 @@ $_SESSION['casoId'] = $_GET['casoId'];
     <script type="text/javascript"> 
     function getCaseID(id) { 
       var casoid = id;
-      document.getElementById("rslt").innerHTML="<?php 
-      $phpvar='"+casoid+"'; 
-      echo $phpvar;
-      ?>";
       casoid = casoid.substring(4);
       $.ajax({
         url: "modelCase.php",
         type: "POST",
         data: {id_case : casoid},
         success: function(response){
-        console.log(response);
+          console.log(response);
         },
         error:function(){
+          alert("ERROR");
         }
       });
     } 
