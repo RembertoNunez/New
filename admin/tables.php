@@ -14,7 +14,7 @@ $_SESSION['casoId'] = $_GET['casoId'];
         </li>
         <li class="breadcrumb-item active">Casos</li>
       </ol>
-      <!-- Example DataTables Card-->
+      <!-- DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
           <section style="float: left;"><i class="fa fa-table"></i> Seguimiento de Casos</section>
@@ -75,6 +75,17 @@ $_SESSION['casoId'] = $_GET['casoId'];
       $phpvar='"+casoid+"'; 
       echo $phpvar;
       ?>";
+      casoid = casoid.substring(4);
+      $.ajax({
+        url: "modelCase.php",
+        type: "POST",
+        data: {id_case : casoid},
+        success: function(response){
+        console.log(response);
+        },
+        error:function(){
+        }
+      });
     } 
     </script>
     <!-- Logout Modal-->

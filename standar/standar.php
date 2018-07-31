@@ -1472,8 +1472,7 @@ function cases() {
         $case['percentage_Complete'] = 0;
       }
       echo "<tr>";
-      echo "<td> <a id='".$case['id_case']."' onClick='getCaseID(this.id)' data-toggle='modal' data-target='#casosModal' href='#'>" .$case['title']."</a></td>";
-      // echo "<td> <button name='".$case['id_case']."' onClick='location.href=?case='".$case['id_case']."''>" .$case['title']."</button> </td>";
+      echo "<td> <a id='"."case".$case['id_case']."' class='myClass' onClick='getCaseID(this.id)' data-toggle='modal' data-target='#casosModal' href='#'>" .$case['title']."</a></td>";
       echo "<td>".$newInicio."</td>";
       echo "<td>".$newFinal."</td>";
       echo "<td>".$result."</td>";

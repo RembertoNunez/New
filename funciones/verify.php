@@ -76,7 +76,7 @@ else if($user['id_profile'] == 2 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
     
     // Envia al usuario a la pagina de solicitante
-    header('Location: ../moduloDeSeguridad/usuarioFinal.php');
+    header('Location: ../admin/dashboard.php');
 }
 
 else if($user['id_profile'] == 3 && $user['username'] == $_POST['username']){
@@ -97,7 +97,7 @@ else if($user['id_profile'] == 3 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
     
     // Envia al usuario a la pagina de lider de any proyecto
-    header('Location: ../moduloDeSeguridad/liderDeAnyPro.php');
+    header('Location: ../admin/tables.php');
 }
 
 else if($user['id_profile'] == 4 && $user['username'] == $_POST['username']){
@@ -118,7 +118,7 @@ else if($user['id_profile'] == 4 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
 
     // Envia al usuario a la pagina de Analista
-    header('Location: ../moduloDeSeguridad/analista.php');
+    header('Location: ../admin/tables.php');
 }
 
 else if($user['id_profile'] == 5 && $user['username'] == $_POST['username']){
@@ -139,7 +139,7 @@ else if($user['id_profile'] == 5 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
 
     // Envia al usuario a la pagina de la Gerencia de Analisis
-    header('Location: ../moduloDeSeguridad/gerenciaAnalisis.php');
+    header('Location: ../admin/proyectos.php');
 }
 
 else if($user['id_profile'] == 6 && $user['username'] == $_POST['username']){
@@ -160,7 +160,7 @@ else if($user['id_profile'] == 6 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
 
     // Envia al usuario a la pagina de Vice Presidente
-    header('Location: ../moduloDeSeguridad/vpPerfil.php');
+    header('Location: ../admin/dashboard.php');
 }
 
 else if($user['id_profile'] == 7 && $user['username'] == $_POST['username']){
@@ -181,7 +181,7 @@ else if($user['id_profile'] == 7 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
 
     // Envia al usuario a la pagina del administrador
-    header('Location: ../index.php');
+    header('Location: ../admin/dashboard.php');
 }
 
 else if($user['id_profile'] == 8 && $user['username'] == $_POST['username']){
@@ -202,7 +202,7 @@ else if($user['id_profile'] == 8 && $user['username'] == $_POST['username']){
     // $statement->execute(); 
 
     // Envia al usuario a la pagina del administrador
-    header('Location: ../index.php');
+    header('Location: ../admin/casos.php');
 }
 
 else {
