@@ -49,11 +49,6 @@ if($user['id_profile'] == 1 && $user['username'] == $_POST['username']){
     $statement = $connect->prepare($sql);
     $statement->execute(); 
 
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
-
     // Envia al usuario a la pagina del administrador
     header('Location: ../admin/dashboard.php');
 } 
@@ -69,13 +64,8 @@ else if($user['id_profile'] == 2 && $user['username'] == $_POST['username']){
     $sql = "UPDATE `users` SET `updated_at`='$current_time', `active`='1' WHERE `users`.`username`='$nombre';";
     $statement = $connect->prepare($sql);
     $statement->execute(); 
-
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
     
-    // Envia al usuario a la pagina de solicitante
+    // Envia al usuario a la pagina de boss_department
     header('Location: ../admin/dashboard.php');
 }
 
@@ -90,13 +80,8 @@ else if($user['id_profile'] == 3 && $user['username'] == $_POST['username']){
     $sql = "UPDATE `users` SET `updated_at`='$current_time', `active`='1' WHERE `users`.`username`='$nombre';";
     $statement = $connect->prepare($sql);
     $statement->execute(); 
-
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
     
-    // Envia al usuario a la pagina de lider de any proyecto
+    // Envia al usuario a la pagina de analista
     header('Location: ../admin/tables.php');
 }
 
@@ -112,12 +97,7 @@ else if($user['id_profile'] == 4 && $user['username'] == $_POST['username']){
     $statement = $connect->prepare($sql);
     $statement->execute(); 
 
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
-
-    // Envia al usuario a la pagina de Analista
+    // Envia al usuario a la pagina de solicitante
     header('Location: ../admin/tables.php');
 }
 
@@ -133,12 +113,7 @@ else if($user['id_profile'] == 5 && $user['username'] == $_POST['username']){
     $statement = $connect->prepare($sql);
     $statement->execute(); 
 
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
-
-    // Envia al usuario a la pagina de la Gerencia de Analisis
+    // Envia al usuario a la pagina de programador
     header('Location: ../admin/proyectos.php');
 }
 
@@ -154,12 +129,7 @@ else if($user['id_profile'] == 6 && $user['username'] == $_POST['username']){
     $statement = $connect->prepare($sql);
     $statement->execute(); 
 
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
-
-    // Envia al usuario a la pagina de Vice Presidente
+    // Envia al usuario a la pagina de vice presidente
     header('Location: ../admin/dashboard.php');
 }
 
@@ -175,12 +145,7 @@ else if($user['id_profile'] == 7 && $user['username'] == $_POST['username']){
     $statement = $connect->prepare($sql);
     $statement->execute(); 
 
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
-
-    // Envia al usuario a la pagina del administrador
+    // Envia al usuario a la pagina de lider de projecto
     header('Location: ../admin/dashboard.php');
 }
 
@@ -196,12 +161,7 @@ else if($user['id_profile'] == 8 && $user['username'] == $_POST['username']){
     $statement = $connect->prepare($sql);
     $statement->execute(); 
 
-    // Code in SQL para agregar el log del usuario con el id, la hora que inicio, y la dericcion IP 
-    // $sql = "INSERT INTO `logs` (`userId`, `inicio`, `direccionIP`) VALUES('$id', '$current_time', '$ip')";
-    // $statement = $connect->prepare($sql);
-    // $statement->execute(); 
-
-    // Envia al usuario a la pagina del administrador
+    // Envia al usuario a la pagina de lider de analisis
     header('Location: ../admin/casos.php');
 }
 
