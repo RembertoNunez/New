@@ -684,24 +684,24 @@ function sysCreate() {
 function updateCases() {
 ?>
   <?php
-  $connect = getDBConnection();
-  $idCaso = $_SESSION['casoId'];
-  $sql = "SELECT * FROM `case_identity` WHERE id_case = '$idCaso'";
-  $statement = $connect->prepare($sql);
-  $statement->execute();
-  $caso = $statement->fetch(PDO::FETCH_ASSOC);
-  $_SESSION['casoTitle'] = $caso['title'];
-  $_SESSION['casoJira'] = $caso['correlative'];
-  $diaIni = $caso['start_at'];
-  $diaInicio = strtotime($diaIni);
-  $showInicio = date('Y-m-d', $diaInicio);
-  $_SESSION['inicioCaso'] = $showInicio;
-  $diaFin = $caso['finish_at'];
-  $diaFinal = strtotime($diaFin);
-  $showFinal = date('Y-m-d', $diaFinal);
-  $_SESSION['finalCaso'] = $showFinal;
-  $_SESSION['descriptionCaso'] = $caso['description_'];
-  $_SESSION['analistaCaso'] = $caso['id_analyst'];
+  // $connect = getDBConnection();
+  // $idCaso = $_SESSION['casoId'];
+  // $sql = "SELECT * FROM `case_identity` WHERE id_case = '$idCaso'";
+  // $statement = $connect->prepare($sql);
+  // $statement->execute();
+  // $caso = $statement->fetch(PDO::FETCH_ASSOC);
+  // $_SESSION['casoTitle'] = $caso['title'];
+  // $_SESSION['casoJira'] = $caso['correlative'];
+  // $diaIni = $caso['start_at'];
+  // $diaInicio = strtotime($diaIni);
+  // $showInicio = date('Y-m-d', $diaInicio);
+  // $_SESSION['inicioCaso'] = $showInicio;
+  // $diaFin = $caso['finish_at'];
+  // $diaFinal = strtotime($diaFin);
+  // $showFinal = date('Y-m-d', $diaFinal);
+  // $_SESSION['finalCaso'] = $showFinal;
+  // $_SESSION['descriptionCaso'] = $caso['description_'];
+  // $_SESSION['analistaCaso'] = $caso['id_analyst'];
 ?>
 <div class="modal fade" id="casosUpdateModal" tabindex="-6" role="dialog" aria-labelledby="casoUpdateModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -715,10 +715,10 @@ function updateCases() {
       <div class="modal-body">
         <form method="POST" action="../funciones/crearCasos.php">
           <label class="text-muted">Nombre del Caso</label>
-          <input class="form-control" type="text" name="title" value="<?php echo $_SESSION['casoTitle']; ?>">
+          <input class="form-control" type="text" name="title" value="<?php echo $_SESSION['casoAcTitle']; ?>">
           
             <section style="float: left; width: 45%"><label class="text-muted">Codigo JIRA</label>
-            <input class="form-control" type="text" name="codigo" value="<?php echo $_SESSION['casoJira']; ?>"> </section>
+            <input class="form-control" type="text" name="codigo" value="<?php echo $_SESSION['casoAcCorr']; ?>"> </section>
             <section style="float: right; width: 45%"><label class="text-muted">Analista</label>
             <select class="form-control" name="analista">
               <?php
@@ -727,7 +727,7 @@ function updateCases() {
               $statement = $connect->prepare($sql);
               $statement->execute();
               if($statement->rowCount() > 0) {
-                echo "<option value=''>Seleccione un Analista</option>";
+                echo "<option value=''>".$_SESSION['casoAcUser']."</option>";
                 while ($ana = $statement->fetch(PDO::FETCH_ASSOC)) {
                   echo "<option value=".$ana['id_user'].">".$ana['name']."</option>"; 
                 }
@@ -736,19 +736,19 @@ function updateCases() {
             </select> </section>
           
             <section style="float: left; width: 45%"><label class="text-muted">Fecha Inicio</label>
-            <input class="form-control" type="date" name="inico" value="<?php echo $_SESSION['inicioCaso']; ?>"> </section>
+            <input class="form-control" type="date" name="inico" value="<?php echo $_SESSION['casoAcStart']; ?>"> </section>
             <section style="float: right; width: 45%"><label class="text-muted">Fecha Final</label>
-            <input class="form-control" type="date" name="final" value="<?php echo $_SESSION['finalCaso']; ?>"> </section>
+            <input class="form-control" type="date" name="final" value="<?php echo $_SESSION['casoAcFinish']; ?>"> </section>
           
             <section style="float: left; width: 45%"><label class="text-muted">Estado</label>
             <select class="form-control" name="estado">
-              <option value="">Seleccione un Estado</option>
               <?php
               $connect = getDBConnection();
               $sql = "SELECT * FROM `status_case`";
               $statement = $connect->prepare($sql);
               $statement->execute();
               if($statement->rowCount() > 0) {
+                echo "<option value=''>".$_SESSION['casoAcStageC']."</option>";
                 while ($status = $statement->fetch(PDO::FETCH_ASSOC)) {
                   echo "<option value=".$status['id_status'].">".$status['title']."</option>"; 
                 }
@@ -757,13 +757,13 @@ function updateCases() {
             </select> </section>
             <section style="float: right; width: 45%"><label class="text-muted">Prioridad</label><br/>
             <select class="form-control" name="prioridad">
-              <option value="">Seleccione un Prioridad</option>
               <?php
               $connect = getDBConnection();
               $sql = "SELECT * FROM `priority_case`";
               $statement = $connect->prepare($sql);
               $statement->execute();
               if($statement->rowCount() > 0) {
+                echo "<option value=''>".$_SESSION['casoAcPriority']."</option>";
                 while ($prior = $statement->fetch(PDO::FETCH_ASSOC)) {
                   echo "<option value=".$prior['id_priority'].">".$prior['title']."</option>"; 
                 }
@@ -772,17 +772,17 @@ function updateCases() {
             </select> </section>
           
           <section style="float: left; width: 50%"> <label class="text-muted">Descripcion</label> </section>
-            <textarea class="form-control" name="description" placeholder="Escirba un fragmento de la descripcion del requerimiento"><?php echo $_SESSION['descriptionCaso']; ?></textarea>
+            <textarea class="form-control" name="description" placeholder="Escirba un fragmento de la descripcion del requerimiento"><?php echo $_SESSION['casoAcDescrip']; ?></textarea>
 
           <section style="float: left; width: 45%"> <label class="text-muted">Ciclo</label>
           <select class="form-control" name="ciclo">
-            <option value="">Seleccione un Ciclo</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `cycle`";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcCycle']."</option>";
               while ($cycle = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$cycle['id_cycle'].">".$cycle['title']."</option>"; 
               }
@@ -792,13 +792,13 @@ function updateCases() {
 
           <section style="float: right; width: 45%"> <label class="text-muted">Proyecto</label>
           <select class="form-control" name="proyecto">
-            <option value="">Seleccione un Proyecto</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `project`";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcProject']."</option>";
               while ($proj = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$proj['id_project'].">".$proj['title']."</option>"; 
               }
@@ -808,13 +808,13 @@ function updateCases() {
 
           <section style="float: left; width: 45%"><label class="text-muted">Systema</label>
           <select class="form-control" name="systema">
-            <option value="">Seleccione un Systema</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `system_`";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcSys']."</option>";
               while ($sys = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$sys['id_system'].">".$sys['title']."</option>"; 
               }
@@ -823,13 +823,13 @@ function updateCases() {
           </select> </section>
           <section style="float: right; width: 45%"><label class="text-muted">Etapa</label>
           <select class="form-control" name="etapa">
-            <option value="">Seleccione una Etapa</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `stage`";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcStatus']."</option>";
               while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
               }
@@ -871,13 +871,13 @@ function updateCases() {
 
           <section style="float: left; width: 45%"><label class="text-muted">Área Solicitante</label><br/>
           <select class="form-control" name="area">
-            <option value="">Seleccione un Area</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `vp`";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcVp']."</option>";
               while ($vp = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$vp['id_vp'].">".$vp['title']."</option>"; 
               }
@@ -1487,7 +1487,7 @@ function cases() {
       echo "<td>".$result."</td>";
       echo "<td>".$case['estado']."</td>";
       echo "<td><div class='progress'><div class='progress-bar' role='progressbar' style='width:".$case['percentage_Complete']."%'></div></div>".$case['percentage_Complete']."%</td>";
-      echo "<td><a id='".$case['id_case']."' class='fa fa-fw fa-pencil' data-toggle='modal' data-target='#casosUpdateModal' href='#'></a></td>";
+      echo "<td><a id='"."case".$case['id_case']."' class='fa fa-fw fa-pencil' onClick='getCaseID(this.id)' data-toggle='modal' data-target='#casosUpdateModal' href='#'></a></td>";
       echo "</tr>";
     }
   }
