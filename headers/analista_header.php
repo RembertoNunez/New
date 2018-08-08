@@ -10,7 +10,7 @@ function adminHead() {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Gerencia de Analisis</title>
+  <title>Casos Atlantida</title>
   <!-- Bootstrap core CSS-->
   <link href="boost/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="../boost/bootstrap/css/bootstrap.min.css" rel="stylesheet">
