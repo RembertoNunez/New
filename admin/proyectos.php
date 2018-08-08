@@ -60,7 +60,24 @@ adminHead();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-
+    <!-- Caso ID -->
+    <script type="text/javascript"> 
+      function getCaseID(id) { 
+        var proyectoid = id;
+        proyectoid = proyectoid.substring(4);
+        $.ajax({
+          url: "modalProyecto.php",
+          type: "POST",
+          data: {id_proyecto : proyectoid},
+          success: function(response){
+            console.log(response);
+          },
+          error:function(){
+            alert("ERROR");
+          }
+        });
+      } 
+    </script>
     <!-- Actualizar Modal -->
     <?php 
     proyectoCreate();

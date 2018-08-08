@@ -683,26 +683,6 @@ function sysCreate() {
 
 function updateCases() {
 ?>
-  <?php
-  // $connect = getDBConnection();
-  // $idCaso = $_SESSION['casoId'];
-  // $sql = "SELECT * FROM `case_identity` WHERE id_case = '$idCaso'";
-  // $statement = $connect->prepare($sql);
-  // $statement->execute();
-  // $caso = $statement->fetch(PDO::FETCH_ASSOC);
-  // $_SESSION['casoTitle'] = $caso['title'];
-  // $_SESSION['casoJira'] = $caso['correlative'];
-  // $diaIni = $caso['start_at'];
-  // $diaInicio = strtotime($diaIni);
-  // $showInicio = date('Y-m-d', $diaInicio);
-  // $_SESSION['inicioCaso'] = $showInicio;
-  // $diaFin = $caso['finish_at'];
-  // $diaFinal = strtotime($diaFin);
-  // $showFinal = date('Y-m-d', $diaFinal);
-  // $_SESSION['finalCaso'] = $showFinal;
-  // $_SESSION['descriptionCaso'] = $caso['description_'];
-  // $_SESSION['analistaCaso'] = $caso['id_analyst'];
-?>
 <div class="modal fade" id="casosUpdateModal" tabindex="-6" role="dialog" aria-labelledby="casoUpdateModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
