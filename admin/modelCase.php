@@ -31,7 +31,6 @@ $connect = getDBConnection();
   $statement = $connect->prepare($sql);
   $statement->execute();
   if($caso = $statement->rowCount() > 0) {
-    echo json_encode($statement->fetchObject());
     $_SESSION['casoAcCorr'] = $caso['correlative'];
     $_SESSION['casoAcTitle'] = $caso['title'];
     $_SESSION['casoAcDescrip'] = $caso['description_'];
@@ -57,6 +56,7 @@ $connect = getDBConnection();
     $_SESSION['casoAcLeader'] = $caso['leader'];
     $_SESSION['casoAcCycle'] = $caso['cycleTitle'];
     $_SESSION['casoAcProject'] = $caso['projectTitle'];
+    echo json_encode($statement->fetchObject());
   }else{
     echo "Se mamo el " . $_POST["id_case"];
   }

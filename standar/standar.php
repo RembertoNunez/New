@@ -727,7 +727,7 @@ function updateCases() {
               $statement = $connect->prepare($sql);
               $statement->execute();
               if($statement->rowCount() > 0) {
-                echo "<option value=''>".$_SESSION['casoAcUser']."</option>";
+                echo "<option value=''>".$_SESSION['casoAcAnalyst']."</option>";
                 while ($ana = $statement->fetch(PDO::FETCH_ASSOC)) {
                   echo "<option value=".$ana['id_user'].">".$ana['name']."</option>"; 
                 }
@@ -839,13 +839,13 @@ function updateCases() {
 
           <section style="float: left; width: 45%"><label class="text-muted">Seleccione Lider</label><br/>
           <select class="form-control" name="lider">
-            <option value="">Seleccione un Lider</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `users` WHERE id_profile = 8";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcLeader']."</option>";
               while ($lider = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$lider['id_user'].">".$lider['name']."</option>"; 
               }
@@ -855,13 +855,13 @@ function updateCases() {
 
           <section style="float: right; width: 45%"><label class="text-muted">Contacto Infatlan</label><br/>
           <select class="form-control" name="contacto">
-            <option value="">Seleccione un Contacto</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `users` WHERE id_profile = 5";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcProgrammer']."</option>";
               while ($us = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$us['id_user'].">".$us['name']."</option>"; 
               }
@@ -887,13 +887,13 @@ function updateCases() {
 
           <section style="float: right; width: 45%;"><label class="text-muted">Solicitante</label><br/>
           <select class="form-control" name="solicitante">
-            <option value="">Seleccione un Solicitante</option>
             <?php
             $connect = getDBConnection();
             $sql = "SELECT * FROM `users` WHERE id_profile = 4";
             $statement = $connect->prepare($sql);
             $statement->execute();
             if($statement->rowCount() > 0) {
+              echo "<option value=''>".$_SESSION['casoAcRequester']."</option>";
               while ($stage = $statement->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value=".$stage['id_stage'].">".$stage['title']."</option>"; 
               }
