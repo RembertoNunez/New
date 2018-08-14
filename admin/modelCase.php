@@ -60,7 +60,8 @@ $sql = "SELECT case_identity.*,
     $_SESSION['casoAcCycle'] = $caso['cycleTitle'];
     $_SESSION['casoAcProject'] = $caso['projectTitle'];
     echo json_encode($statement->fetchObject());
-  }else{
+  }
+  else {
     echo "Se mamo el " . $_POST["id_case"];
   }
 
