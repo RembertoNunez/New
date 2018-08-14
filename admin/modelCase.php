@@ -32,6 +32,7 @@ $sql = "SELECT case_identity.*,
         WHERE id_case = $id ";
   $statement = $connect->prepare($sql);
   $statement->execute();
+  $caso = $statement->fetch(PDO::FETCH_ASSOC);
   if($caso = $statement->rowCount() > 0) {
     $_SESSION['casoAcCorr'] = $caso['correlative'];
     $_SESSION['casoAcTitle'] = $caso['title'];

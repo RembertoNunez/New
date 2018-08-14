@@ -85,7 +85,7 @@ $_SESSION['casoId'] = $_GET['casoId'];
       });
     } 
     </script>
-    <!-- Logout Modal-->
+    <!-- Modals -->
     <?php
     createCases();
     segCasos();
