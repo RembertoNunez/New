@@ -4,7 +4,7 @@ date_default_timezone_set("America/Tegucigalpa");
 $dia = date("h:ia");
 $_SESSION['time'] = $dia;
 include '../funciones/getConnection.php';
-include '../admin/modelCase.php';
+include 'modelCase.php';
 
 function standar_footer() {
 ?>
