@@ -1,6 +1,5 @@
 <?php
 session_start();
-date_default_timezone_set("America/Tegucigalpa"); 
 include '../funciones/getConnection.php';
 $id = $_POST['id_case'];
 
@@ -32,7 +31,6 @@ $sql = "SELECT case_identity.*,
         WHERE id_case = $id ";
   $statement = $connect->prepare($sql);
   $statement->execute();
-  $caso = $statement->fetch(PDO::FETCH_ASSOC);
   if($caso = $statement->rowCount() > 0) {
     $_SESSION['casoAcCorr'] = $caso['correlative'];
     $_SESSION['casoAcTitle'] = $caso['title'];
@@ -60,8 +58,8 @@ $sql = "SELECT case_identity.*,
     $_SESSION['casoAcCycle'] = $caso['cycleTitle'];
     $_SESSION['casoAcProject'] = $caso['projectTitle'];
     echo json_encode($statement->fetchObject());
-  }
-  else {
+  } 
+  else{
     echo "Se mamo el " . $_POST["id_case"];
   }
 
