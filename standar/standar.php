@@ -1353,8 +1353,8 @@ function segCasos() {
                 <div class="media">
                   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
                   <div class="media-body">
-                    <strong>David Miller</strong> posted a new article to
-                    <strong>David Miller Website</strong>.
+                    <strong>David Aguilera</strong> subio un articulo nuevo a
+                    <strong>David Aguilera folder</strong>.
                     <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
                   </div>
                 </div>
@@ -1363,7 +1363,7 @@ function segCasos() {
                 <div class="media">
                   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
                   <div class="media-body">
-                    <strong>Samantha King</strong> sent you a new message!
+                    <strong>Samantha Hernandez</strong> Te envio un mensaje!
                     <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
                   </div>
                 </div>
@@ -1372,8 +1372,8 @@ function segCasos() {
                 <div class="media">
                   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
                   <div class="media-body">
-                    <strong>Jeffery Wellings</strong> added a new photo to the album
-                    <strong>Beach</strong>.
+                    <strong>Jeffery Rivera</strong> agrego una foto nueva al album
+                    <strong>Casos</strong>.
                     <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
                   </div>
                 </div>
@@ -1383,14 +1383,13 @@ function segCasos() {
                   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
                   <div class="media-body">
                     <i class="fa fa-code-fork"></i>
-                    <strong>Monica Dennis</strong> forked the
+                    <strong>Rojer Mejia</strong> forked the
                     <strong>startbootstrap-sb-admin</strong> repository on
                     <strong>GitHub</strong>.
                     <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
                   </div>
                 </div>
               </a>
-              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
